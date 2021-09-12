@@ -32,7 +32,6 @@ namespace UnityStandardAssets._2D {
       m_Rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-
     private void FixedUpdate() {
       m_Grounded = false;
 
@@ -51,8 +50,13 @@ namespace UnityStandardAssets._2D {
       m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
     }
 
+    public void UpdateMovemement(float move, bool crouch, bool jump) {
+      Crouch(crouch);
+      Move(move, crouch);
+      Jump(jump);
+    }
 
-    public void Move(float move, bool crouch, bool jump) {
+    private void Crouch(bool crouch) {
       // If crouching, check to see if the character can stand up
       if (!crouch && m_Anim.GetBool("Crouch")) {
         // If the character has a ceiling preventing them from standing up, keep them crouching
@@ -63,7 +67,9 @@ namespace UnityStandardAssets._2D {
 
       // Set whether or not the character is crouching in the animator
       m_Anim.SetBool("Crouch", crouch);
+    }
 
+    private void Move(float move, bool crouch) {
       //only control the player if grounded or airControl is turned on
       if (m_Grounded || m_AirControl) {
         // Reduce the speed if crouching by the crouchSpeed multiplier
@@ -86,7 +92,9 @@ namespace UnityStandardAssets._2D {
           Flip();
         }
       }
+    }
 
+    private void Jump(bool jump) {
       if (jump && !m_IsJumping && m_JumpCount < m_MaxJumpsInARow) {
         m_Grounded = false;
         m_Anim.SetBool("Ground", false);
