@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 #pragma warning disable 649
@@ -9,7 +10,8 @@ namespace UnityStandardAssets._2D {
     [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
     [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
     [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
-    [SerializeField] private int MaxJumpsInARow = 2;
+    [SerializeField] private int m_MaxJumpsInARow = 2;
+    [SerializeField] private float m_JumpDelay = .3f;
 
     private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
@@ -20,6 +22,7 @@ namespace UnityStandardAssets._2D {
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
     private int m_JumpCount = 0;
+    private bool m_IsJumping = false;
 
     private void Awake() {
       // Setting up references.
@@ -84,17 +87,26 @@ namespace UnityStandardAssets._2D {
         }
       }
 
-      if (jump && m_JumpCount < MaxJumpsInARow) {
-        // Add a vertical force to the player.
-        m_JumpCount++;
+      if (jump && !m_IsJumping && m_JumpCount < m_MaxJumpsInARow) {
         m_Grounded = false;
         m_Anim.SetBool("Ground", false);
+
+        // Add a vertical force to the player.
         m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+
+        m_JumpCount++;
+        m_IsJumping = true;
+        StartCoroutine(ResetIsJumpingAfterDelay());
       } else if (m_Grounded && m_Rigidbody2D.velocity.y <= 0) {
         m_JumpCount = 0;
+        m_IsJumping = false;
       }
     }
 
+    private IEnumerator ResetIsJumpingAfterDelay() {
+      yield return new WaitForSeconds(m_JumpDelay);
+      m_IsJumping = false;
+    }
 
     private void Flip() {
       // Switch the way the player is labelled as facing.
