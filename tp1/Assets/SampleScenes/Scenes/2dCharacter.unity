@@ -19726,6 +19726,8 @@ MonoBehaviour:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 4294967295
+  m_MaxJumpsInARow: 2
+  m_JumpDelay: 0.3
 --- !u!50 &920846918
 Rigidbody2D:
   serializedVersion: 4
