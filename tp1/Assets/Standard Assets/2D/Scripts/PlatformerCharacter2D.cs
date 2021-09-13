@@ -18,6 +18,9 @@ namespace UnityStandardAssets._2D {
     private bool m_Grounded;            // Whether or not the player is grounded.
     private Transform m_CeilingCheck;   // A position marking where to check for ceilings
     const float k_CeilingRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
+    private Transform m_WallCheck;   // A position marking where to check for ceilings
+    const float k_WallCheckRadius = .5f;
+    private bool m_TouchesWall = false;
     private Animator m_Anim;            // Reference to the player's animator component.
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
@@ -28,21 +31,14 @@ namespace UnityStandardAssets._2D {
       // Setting up references.
       m_GroundCheck = transform.Find("GroundCheck");
       m_CeilingCheck = transform.Find("CeilingCheck");
+      m_WallCheck = transform.Find("WallCheck");
       m_Anim = GetComponent<Animator>();
       m_Rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate() {
-      m_Grounded = false;
-
-      // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
-      // This can be done using layers instead but Sample Assets will not overwrite your project settings.
-      Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
-      for (int i = 0; i < colliders.Length; i++) {
-        if (colliders[i].gameObject != gameObject) {
-          m_Grounded = true;
-        }
-      }
+      m_Grounded = CheckCollision(m_GroundCheck, k_GroundedRadius);
+      m_TouchesWall = CheckCollision(m_WallCheck, k_WallCheckRadius);
 
       m_Anim.SetBool("Ground", m_Grounded);
 
@@ -54,6 +50,17 @@ namespace UnityStandardAssets._2D {
       Crouch(crouch);
       Move(move, crouch);
       Jump(jump);
+    }
+
+    private bool CheckCollision(Transform check, float radius) {
+      Collider2D[] colliders = Physics2D.OverlapCircleAll(check.position, radius, m_WhatIsGround);
+      for (int i = 0; i < colliders.Length; i++) {
+        if (colliders[i].gameObject != gameObject) {
+          return true;
+        }
+      }
+
+      return false;
     }
 
     private void Crouch(bool crouch) {
