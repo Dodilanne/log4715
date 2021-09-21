@@ -7,6 +7,7 @@ namespace UnityStandardAssets._2D {
   public class PlatformerCharacter2D : MonoBehaviour {
     [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
     [SerializeField] private float m_JumpForce = 400f;                  // Amount of force added when the player jumps.
+    [SerializeField] private float m_WallPushBackForce = 1000f;
     [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
     [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
     [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
@@ -18,7 +19,7 @@ namespace UnityStandardAssets._2D {
     private bool m_Grounded;            // Whether or not the player is grounded.
     private Transform m_CeilingCheck;   // A position marking where to check for ceilings
     const float k_CeilingRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
-    private Transform m_WallCheck;   // A position marking where to check for ceilings
+    private Transform m_WallCheck;
     const float k_WallCheckRadius = .5f;
     private bool m_TouchesWall = false;
     private Animator m_Anim;            // Reference to the player's animator component.
@@ -102,20 +103,33 @@ namespace UnityStandardAssets._2D {
     }
 
     private void Jump(bool jump) {
-      if (jump && !m_IsJumping && m_JumpCount < m_MaxJumpsInARow) {
+      bool hasLanded = m_Grounded && m_Rigidbody2D.velocity.y <= 0;
+      bool canJump = jump && !m_IsJumping && m_JumpCount < m_MaxJumpsInARow;
+
+      if (canJump) {
         m_Grounded = false;
         m_Anim.SetBool("Ground", false);
 
         // Add a vertical force to the player.
         m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 
-        m_JumpCount++;
         m_IsJumping = true;
         StartCoroutine(ResetIsJumpingAfterDelay());
-      } else if (m_Grounded && m_Rigidbody2D.velocity.y <= 0) {
+
+
+        if (m_TouchesWall) {
+          m_JumpCount = 0;
+          m_Rigidbody2D.velocity = Vector2.zero;
+          m_Rigidbody2D.AddForce(Vector2.up * m_JumpForce);
+          m_Rigidbody2D.AddForce(Vector2.right * m_JumpForce * 5);
+        } else {
+          m_JumpCount++;
+        }
+      } else if (hasLanded) {
         m_JumpCount = 0;
         m_IsJumping = false;
       }
+
     }
 
     private IEnumerator ResetIsJumpingAfterDelay() {
