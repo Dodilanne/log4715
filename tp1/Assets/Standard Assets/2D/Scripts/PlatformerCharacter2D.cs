@@ -132,9 +132,12 @@ namespace UnityStandardAssets._2D {
         if (m_TouchesWall && !wasGrounded) {
           m_JumpCount = 0;
           m_Rigidbody2D.velocity = Vector2.zero;
-          m_Rigidbody2D.AddForce(Vector2.up * m_JumpForce * .5f);
-          m_Rigidbody2D.AddForce(Vector2.right * m_WallPushBackForce);
 
+          Vector2 pushbackDirection = m_FacingRight ? Vector2.left : Vector2.right;
+          m_Rigidbody2D.AddForce(pushbackDirection * m_WallPushBackForce);
+          m_Rigidbody2D.AddForce(Vector2.up * m_JumpForce * .5f);
+
+          Flip();
           StartCoroutine(WallJumpTimeout());
         } else {
           m_JumpCount++;
