@@ -11,9 +11,13 @@ namespace UnityStandardAssets._2D {
     [SerializeField] float m_MaxJumpMultiplier = 3f;
 
     private PlatformerCharacter2D m_Character;
-    private bool m_ShouldJump;
+
+    private bool m_WasJumpPressed;
+    private bool m_wasJumpReleased;
+
     private bool m_IsJumpPressed;
     private bool m_IsCrouchPressed;
+
     private float m_ChargeStartTime = -1f;
 
     private void Awake() {
@@ -24,8 +28,12 @@ namespace UnityStandardAssets._2D {
       bool isJumpPressed = Input.GetButton("Jump");
       bool isCrouchPressed = Input.GetKey(KeyCode.LeftControl);
 
-      if (!m_ShouldJump && m_IsJumpPressed) {
-        m_ShouldJump = !isJumpPressed || (m_IsCrouchPressed && !isCrouchPressed);
+      if (!m_WasJumpPressed) {
+        m_WasJumpPressed = Input.GetButtonDown("Jump");
+      }
+
+      if (!m_wasJumpReleased && m_IsJumpPressed) {
+        m_wasJumpReleased = !isJumpPressed || (m_IsCrouchPressed && !isCrouchPressed);
       }
 
       m_IsJumpPressed = isJumpPressed;
@@ -35,12 +43,13 @@ namespace UnityStandardAssets._2D {
     private void FixedUpdate() {
       // Read the inputs.
       bool isCharging = m_IsCrouchPressed && m_IsJumpPressed;
-      float h = isCharging ? 0f : CrossPlatformInputManager.GetAxis("Horizontal");
+      float movement = isCharging ? 0f : CrossPlatformInputManager.GetAxis("Horizontal");
       float jumpMultiplier = GetJumpMultiplier(isCharging);
 
       // Pass all parameters to the character control script.
-      m_Character.UpdateMovemement(h, m_IsCrouchPressed, m_ShouldJump, Math.Min(m_MaxJumpMultiplier, jumpMultiplier));
-      m_ShouldJump = false;
+      m_Character.UpdateMovemement(movement, m_IsCrouchPressed, m_WasJumpPressed, m_wasJumpReleased, Math.Min(m_MaxJumpMultiplier, jumpMultiplier));
+      m_WasJumpPressed = false;
+      m_wasJumpReleased = false;
     }
 
     private float GetJumpMultiplier(bool isCharging) {
@@ -48,7 +57,7 @@ namespace UnityStandardAssets._2D {
 
       if (isCharging && m_ChargeStartTime < 0) {
         m_ChargeStartTime = Time.time;
-      } else if (m_ChargeStartTime >= 0 && m_ShouldJump) {
+      } else if (m_ChargeStartTime >= 0 && m_wasJumpReleased) {
         float timeSinceCharge = Time.time - m_ChargeStartTime;
         if (timeSinceCharge >= Math.Max(1f, m_MinJumpMultiplier)) {
           jumpMultiplier = timeSinceCharge;

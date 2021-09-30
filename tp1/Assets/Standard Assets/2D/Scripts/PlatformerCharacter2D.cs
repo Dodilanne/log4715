@@ -56,10 +56,14 @@ namespace UnityStandardAssets._2D {
       m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
     }
 
-    public void UpdateMovemement(float move, bool crouch, bool jump, float jumpMultiplier) {
-      Crouch(crouch);
-      Move(move, crouch);
-      Jump(jump, jumpMultiplier);
+    public void UpdateMovemement(float movement, bool isCrouched, bool isJumpPressed, bool wasJumpReleased, float jumpMultiplier) {
+      bool chargeJump = m_Grounded && wasJumpReleased;
+      bool jump = m_Grounded ? (isJumpPressed && !isCrouched) : isJumpPressed;
+      bool canJump = jump || chargeJump;
+
+      Crouch(isCrouched);
+      Move(movement, isCrouched);
+      Jump(canJump, jumpMultiplier);
     }
 
     private bool CheckCollision(Transform check, float radius, LayerMask? layerMask = null) {
