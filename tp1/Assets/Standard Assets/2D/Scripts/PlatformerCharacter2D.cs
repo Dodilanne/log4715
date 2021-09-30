@@ -56,10 +56,10 @@ namespace UnityStandardAssets._2D {
       m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
     }
 
-    public void UpdateMovemement(float move, bool crouch, bool jump) {
+    public void UpdateMovemement(float move, bool crouch, bool jump, float jumpMultiplier) {
       Crouch(crouch);
       Move(move, crouch);
-      Jump(jump);
+      Jump(jump, jumpMultiplier);
     }
 
     private bool CheckCollision(Transform check, float radius, LayerMask? layerMask = null) {
@@ -115,7 +115,7 @@ namespace UnityStandardAssets._2D {
       }
     }
 
-    private void Jump(bool jump) {
+    private void Jump(bool jump, float jumpMultiplier) {
       bool wasGrounded = m_Grounded;
       bool hasLanded = m_Grounded && m_Rigidbody2D.velocity.y <= 0;
       bool canJump = jump && !m_IsJumping && m_JumpCount < m_MaxJumpsInARow;
@@ -124,8 +124,9 @@ namespace UnityStandardAssets._2D {
         m_Grounded = false;
         m_Anim.SetBool("Ground", false);
 
+        float boost = Math.Min(jumpMultiplier, 3f);
         m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0f);
-        m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+        m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * boost));
 
         StartCoroutine(JumpTimeout());
 
