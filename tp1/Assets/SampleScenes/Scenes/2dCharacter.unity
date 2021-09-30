@@ -8656,6 +8656,7 @@ MonoBehaviour:
   m_SpinTurnLimit: 90
   m_TargetVelocityLowerLimit: 4
   m_SmoothTurnTime: 0.2
+  target_character: {fileID: 920846917}
 --- !u!114 &408891094
 MonoBehaviour:
   m_ObjectHideFlags: 0
