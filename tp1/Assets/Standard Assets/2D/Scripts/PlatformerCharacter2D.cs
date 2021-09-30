@@ -124,9 +124,8 @@ namespace UnityStandardAssets._2D {
         m_Grounded = false;
         m_Anim.SetBool("Ground", false);
 
-        float boost = Math.Min(jumpMultiplier, 3f);
         m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0f);
-        m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * boost));
+        m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * jumpMultiplier));
 
         StartCoroutine(JumpTimeout());
 
@@ -144,18 +143,21 @@ namespace UnityStandardAssets._2D {
           m_JumpCount++;
         }
       } else if (hasLanded) {
+        // Reset jump state after landing
         m_JumpCount = 0;
         m_IsJumping = false;
         m_IsWallJumping = false;
       }
     }
 
+    // Automatically reset m_IsJumping after m_JumpTimeout seconds has passed
     private IEnumerator JumpTimeout() {
       m_IsJumping = true;
       yield return new WaitForSeconds(m_JumpTimeout);
       m_IsJumping = false;
     }
 
+    // Automatically reset m_IsWallJumping after m_WallJumpTimeout seconds has passed
     private IEnumerator WallJumpTimeout() {
       m_IsWallJumping = true;
       yield return new WaitForSeconds(m_WallJumpTimeout);
