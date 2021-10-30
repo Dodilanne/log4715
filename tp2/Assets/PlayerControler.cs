@@ -18,6 +18,19 @@ public class PlayerControler : MonoBehaviour {
   // Valeurs exposées
   [SerializeField]
   float MoveSpeed = 5.0f;
+  
+  [SerializeField]
+  float DashSpeed = 10.0f;
+  [SerializeField]
+  float DashDuration = 1.0f;
+  [SerializeField]
+  float DashRegenTime = 1.0f;
+  bool dashing = false;
+  bool canDash = true;
+  int dashDirection = 0;
+
+  [SerializeField]
+  string dashInputAction = "Dash";
 
   [SerializeField]
   float JumpForce = 10f;
@@ -40,10 +53,10 @@ public class PlayerControler : MonoBehaviour {
 
   // Vérifie les entrées de commandes du joueur
   void Update() {
-    var horizontal = Input.GetAxis("Horizontal") * MoveSpeed;
+    var horizontal = dashing ? dashDirection * DashSpeed :  Input.GetAxis("Horizontal") * MoveSpeed;
     HorizontalMove(horizontal);
     FlipCharacter(horizontal);
-    CheckJump();
+    CheckInput();
   }
 
   // Gère le mouvement horizontal 
@@ -53,7 +66,7 @@ public class PlayerControler : MonoBehaviour {
   }
 
   // Gère le saut du personnage, ainsi que son animation de saut
-  void CheckJump() {
+  void CheckInput() {
     if (_Grounded) {
       if (Input.GetButtonDown("Jump")) {
         _Rb.AddForce(new Vector3(0, JumpForce, 0), ForceMode.Impulse);
@@ -62,6 +75,19 @@ public class PlayerControler : MonoBehaviour {
         _Anim.SetBool("Jump", true);
       }
     }
+    if (Input.GetButtonDown(dashInputAction) && CanDash()) {
+      dashing = true;
+      dashDirection = Input.GetAxis("Horizontal") < 0 ? -1 : 1;
+      Invoke("StopDash", DashDuration);
+    }
+  }
+
+  void StopDash(){
+    dashing = false;
+  }
+
+  bool CanDash() {
+    return canDash && !dashing && Input.GetAxis("Horizontal") != 0;
   }
 
   // Gère l'orientation du joueur et les ajustements de la camera
