@@ -6,6 +6,8 @@ using UnityEngine;
 public class ShootController : MonoBehaviour {
   // Serialized attributes
   [SerializeField] float PickupAnimSpeed = 6f;
+  [SerializeField] float ShotDelay = 0f; // Time between shots (in seconds)
+
   [SerializeField] int ShotCount;
 
   // Private attributes
@@ -36,7 +38,7 @@ public class ShootController : MonoBehaviour {
 
     _CanShoot = false;
     _Anim.SetTrigger("Pickup");
-    yield return new WaitForSeconds(_ShotDuration);
+    yield return new WaitForSeconds(_ShotDuration + ShotDelay);
     _CanShoot = true;
   }
 
