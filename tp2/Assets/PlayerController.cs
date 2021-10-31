@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControler : MonoBehaviour {
+public class PlayerController : MonoBehaviour {
   // Déclaration des constantes
   private static readonly Vector3 FlipRotation = new Vector3(0, 180, 0);
   private static readonly Vector3 CameraPosition = new Vector3(10, 1, 0);
