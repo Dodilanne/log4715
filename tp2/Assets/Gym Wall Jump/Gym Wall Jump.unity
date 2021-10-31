@@ -244,6 +244,9 @@ MonoBehaviour:
   WhatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  WhatIsWall:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!135 &235942256
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -437,7 +440,7 @@ GameObject:
   - component: {fileID: 1315943657}
   - component: {fileID: 1315943656}
   - component: {fileID: 1315943655}
-  m_Layer: 8
+  m_Layer: 3
   m_Name: rightWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -756,7 +759,7 @@ GameObject:
   - component: {fileID: 1831466342}
   - component: {fileID: 1831466341}
   - component: {fileID: 1831466340}
-  m_Layer: 8
+  m_Layer: 3
   m_Name: leftWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

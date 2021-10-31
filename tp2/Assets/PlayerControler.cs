@@ -11,6 +11,8 @@ public class PlayerControler : MonoBehaviour {
   // Déclaration des variables
   bool _Grounded { get; set; }
   bool _Flipped { get; set; }
+  bool _TouchingWall { get; set; }
+
   Animator _Anim { get; set; }
   Rigidbody _Rb { get; set; }
   Camera _MainCamera { get; set; }
@@ -25,6 +27,9 @@ public class PlayerControler : MonoBehaviour {
   [SerializeField]
   LayerMask WhatIsGround;
 
+   [SerializeField]
+  LayerMask WhatIsWall;
+
   // Awake se produit avait le Start. Il peut être bien de régler les références dans cette section.
   void Awake() {
     _Anim = GetComponent<Animator>();
@@ -36,6 +41,7 @@ public class PlayerControler : MonoBehaviour {
   void Start() {
     _Grounded = false;
     _Flipped = false;
+    _TouchingWall = false;
   }
 
   // Vérifie les entrées de commandes du joueur
@@ -62,16 +68,41 @@ public class PlayerControler : MonoBehaviour {
         _Anim.SetBool("Jump", true);
       }
     }
+    if(_TouchingWall) {
+      Debug.Log("touching wall");
+       if (Input.GetButtonDown("Jump")) {
+        var horizontal = Input.GetAxis("Horizontal") * MoveSpeed;
+        var direction = (horizontal < 0) ? 1 : -1;
+        Debug.Log("touching wall and jumped");
+        _Rb.velocity = new Vector3(0, 0, 0);
+        _Rb.AddForce(new Vector3(0, JumpForce * 0.5f, 0), ForceMode.Impulse);
+        _Rb.AddForce(new Vector3(0, 0, direction * JumpForce * MoveSpeed * 2f), ForceMode.Impulse);
+
+        FlipCharacter(direction);
+         StartCoroutine(WallJumpTimeout());
+
+        _TouchingWall = false;
+        _Anim.SetBool("Jump", true);
+      }
+    }
   }
+
+private IEnumerator WallJumpTimeout() {
+      _TouchingWall = true;
+      yield return new WaitForSeconds(.3f);
+      _TouchingWall = false;
+    }
 
   // Gère l'orientation du joueur et les ajustements de la camera
   void FlipCharacter(float horizontal) {
     if (horizontal < 0 && !_Flipped) {
+      Debug.Log("here 1");
       _Flipped = true;
       transform.Rotate(FlipRotation);
       _MainCamera.transform.Rotate(-FlipRotation);
       _MainCamera.transform.localPosition = InverseCameraPosition;
     } else if (horizontal > 0 && _Flipped) {
+      Debug.Log("here 2");
       _Flipped = false;
       transform.Rotate(-FlipRotation);
       _MainCamera.transform.Rotate(FlipRotation);
@@ -81,6 +112,11 @@ public class PlayerControler : MonoBehaviour {
 
   // Collision avec le sol
   void OnCollisionEnter(Collision coll) {
+    // On s'assure de bien être en contact avec le mur
+    if(( (coll.gameObject.layer==3))) {
+      _TouchingWall = true;
+    }
+
     // On s'assure de bien être en contact avec le sol
     if ((WhatIsGround & (1 << coll.gameObject.layer)) == 0)
       return;
@@ -90,5 +126,7 @@ public class PlayerControler : MonoBehaviour {
       _Grounded = true;
       _Anim.SetBool("Grounded", _Grounded);
     }
+    
   }
+
 }
