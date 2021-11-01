@@ -1,19 +1,14 @@
-using UnityEditor.SearchService;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class ArenaPlayer : MonoBehaviour {
   // Serialized attributes
-  [SerializeField] bool IsDead;
-
-  void Start() {
-    IsDead = false;
-  }
+  [SerializeField] UnityEvent GameOverEvent;
 
   // Collision avec le sol
   void OnCollisionEnter(Collision collision) {
-    if (collision.gameObject.tag == "Enemy") {
-      SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    if (collision.gameObject.tag == "Enemy" && GameOverEvent != null) {
+      GameOverEvent.Invoke();
     }
   }
 }
