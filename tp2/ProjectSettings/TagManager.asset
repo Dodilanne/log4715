@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - JerryCan
+  - Key
+  - Door
   - Enemy
   - PlayerRocket
   - EnemyRocket
@@ -13,7 +15,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Door
   - Water
   - UI
   - 
