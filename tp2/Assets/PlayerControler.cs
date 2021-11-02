@@ -60,7 +60,8 @@ public class PlayerControler : MonoBehaviour {
 
   // Gère le saut du personnage, ainsi que son animation de saut
   void CheckJump() {
-    if (_Grounded) {
+    if (_Grounded) 
+    {
       if (Input.GetButtonDown("Jump")) {
         _Rb.AddForce(new Vector3(0, JumpForce, 0), ForceMode.Impulse);
         _Grounded = false;
@@ -68,41 +69,39 @@ public class PlayerControler : MonoBehaviour {
         _Anim.SetBool("Jump", true);
       }
     }
-    if(_TouchingWall) {
-      Debug.Log("touching wall");
-       if (Input.GetButtonDown("Jump")) {
+
+    if(_TouchingWall) 
+    {
+       if (Input.GetButtonDown("Jump")) 
+       {
         var horizontal = Input.GetAxis("Horizontal") * MoveSpeed;
         var direction = (horizontal < 0) ? 1 : -1;
-        Debug.Log("touching wall and jumped");
         _Rb.velocity = new Vector3(0, 0, 0);
         _Rb.AddForce(new Vector3(0, JumpForce * 0.5f, 0), ForceMode.Impulse);
         _Rb.AddForce(new Vector3(0, 0, direction * JumpForce * MoveSpeed * 2f), ForceMode.Impulse);
+        _Anim.SetBool("Jump", true);
 
         FlipCharacter(direction);
-         StartCoroutine(WallJumpTimeout());
-
-        _TouchingWall = false;
-        _Anim.SetBool("Jump", true);
       }
+      StartCoroutine(WallJumpTimeout());
     }
   }
 
-private IEnumerator WallJumpTimeout() {
-      _TouchingWall = true;
+  private IEnumerator WallJumpTimeout() 
+    {
       yield return new WaitForSeconds(.3f);
       _TouchingWall = false;
     }
 
   // Gère l'orientation du joueur et les ajustements de la camera
-  void FlipCharacter(float horizontal) {
+  void FlipCharacter(float horizontal) 
+  {
     if (horizontal < 0 && !_Flipped) {
-      Debug.Log("here 1");
       _Flipped = true;
       transform.Rotate(FlipRotation);
       _MainCamera.transform.Rotate(-FlipRotation);
       _MainCamera.transform.localPosition = InverseCameraPosition;
     } else if (horizontal > 0 && _Flipped) {
-      Debug.Log("here 2");
       _Flipped = false;
       transform.Rotate(-FlipRotation);
       _MainCamera.transform.Rotate(FlipRotation);
@@ -113,7 +112,8 @@ private IEnumerator WallJumpTimeout() {
   // Collision avec le sol
   void OnCollisionEnter(Collision coll) {
     // On s'assure de bien être en contact avec le mur
-    if(( (coll.gameObject.layer==3))) {
+    if(( (coll.gameObject.layer==3))) 
+    {
       _TouchingWall = true;
     }
 
@@ -126,7 +126,5 @@ private IEnumerator WallJumpTimeout() {
       _Grounded = true;
       _Anim.SetBool("Grounded", _Grounded);
     }
-    
   }
-
 }
