@@ -30,12 +30,14 @@ public class LockAndKeyControler : MonoBehaviour
     void Update()
     {
       keyText.text = "Key number: " + keyNumber;
+
       if(showNoKeyWarning) 
       {
         noKeyText.gameObject.SetActive(true);
         StartCoroutine(ShowWarning());
         showNoKeyWarning = false;
       }
+      
       if(touchedDoorWithKey) 
       {
         keyNumber--;
@@ -49,8 +51,7 @@ public class LockAndKeyControler : MonoBehaviour
       {
         if (keyNumber >=1) 
         {
-          Debug.Log("here");
-          coll.gameObject.transform.Rotate(0,0,-45);
+          coll.gameObject.transform.Rotate(0,0,-90);
           touchedDoorWithKey = true;
         }
         else 
