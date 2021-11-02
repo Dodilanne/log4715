@@ -49,7 +49,8 @@ public class LockAndKeyControler : MonoBehaviour
       {
         if (keyNumber >=1) 
         {
-          coll.gameObject.transform.Rotate(0,0,-90);
+          Debug.Log("here");
+          coll.gameObject.transform.Rotate(0,0,-45);
           touchedDoorWithKey = true;
         }
         else 
