@@ -19,9 +19,10 @@ public class RocketController : MonoBehaviour {
 
   private void OnTriggerEnter(Collider other) {
     bool isPlayer = other.gameObject.tag == "Player";
+    bool isArena = other.gameObject.tag == "Arena";
     bool isGround = IsLayer(_WhatIsGround, other);
     bool isRocket = other.gameObject.tag == "EnemyRocket" || other.gameObject.tag == "PlayerRocket";
-    if (!isRocket && (isGround || (isPlayer && _IsEnemyRocket || !isPlayer && !_IsEnemyRocket))) {
+    if (!isArena && !isRocket && (isGround || (isPlayer && _IsEnemyRocket || !isPlayer && !_IsEnemyRocket))) {
       Destroy(this.gameObject);
     }
   }
