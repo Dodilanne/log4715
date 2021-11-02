@@ -12,7 +12,7 @@ public class DoorController : MonoBehaviour {
   private bool IsActive = false;
   private Transform _Door;
   private MeshRenderer _MeshRenderer;
-  private bool shouldTriggerCloseEvent = false;
+  private bool _ShouldTriggerCloseEvent = false;
 
   private void Update() {
     if (IsActive && !IsLocked && Input.GetButtonDown("Open")) {
@@ -24,8 +24,8 @@ public class DoorController : MonoBehaviour {
       _Door.Translate(Vector3.up * Time.deltaTime * 8);
     } else if (!IsOpened && _Door.localPosition.y > 0) {
       _Door.Translate(Vector3.down * Time.deltaTime * 8);
-    } else if (!IsOpened && shouldTriggerCloseEvent) {
-      shouldTriggerCloseEvent = false;
+    } else if (!IsOpened && _ShouldTriggerCloseEvent) {
+      _ShouldTriggerCloseEvent = false;
       if (OnClose != null) OnClose.Invoke();
     }
   }
@@ -53,7 +53,7 @@ public class DoorController : MonoBehaviour {
 
   public void Close() {
     IsOpened = false;
-    shouldTriggerCloseEvent = true;
+    _ShouldTriggerCloseEvent = true;
   }
 
   private void OnTriggerEnter(Collider other) {

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class RocketManager : MonoBehaviour {
-  [SerializeField] LayerMask _WhatIsGround;
+  [SerializeField] LayerMask WhatIsGround;
   [SerializeField] GameObject PlayerRocketPrefab;
   [SerializeField] GameObject EnemyRocketPrefab;
   [SerializeField] Vector3 RocketOffset;
@@ -12,7 +12,7 @@ public class RocketManager : MonoBehaviour {
     Vector3 offset = RocketOffset;
     if (isFacingLeft) offset.z *= -1;
     GameObject rocket = Instantiate(RocketPrefab, offset + spawner.transform.position, spawner.transform.rotation, this.transform);
-    rocket.GetComponent<RocketController>().Init(_WhatIsGround);
+    rocket.GetComponent<RocketController>().Init(WhatIsGround);
     rocket.transform.Rotate(Vector3.right, 90);
     rocket.GetComponent<Rigidbody>().velocity = (isFacingLeft ? Vector3.back : Vector3.forward) * 10;
   }

@@ -45,7 +45,6 @@ public class ShootController : MonoBehaviour {
     IEnumerable<AnimationClip> clips = _Anim.runtimeAnimatorController.animationClips.Where(clip => clip.name == "pickup");
     if (clips.Count() > 0) {
       _ShotDuration = clips.First().length / PickupAnimSpeed;
-
     }
   }
 }

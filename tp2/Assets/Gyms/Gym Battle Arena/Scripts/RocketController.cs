@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class RocketController : MonoBehaviour {
-  private LayerMask _WhatIsGround;
+  private LayerMask WhatIsGround;
 
   private bool _IsEnemyRocket;
 
@@ -10,7 +10,7 @@ public class RocketController : MonoBehaviour {
   }
 
   public void Init(LayerMask whatIsGround) {
-    _WhatIsGround = whatIsGround;
+    WhatIsGround = whatIsGround;
   }
 
   private bool IsLayer(LayerMask layer, Collider collider) {
@@ -20,7 +20,7 @@ public class RocketController : MonoBehaviour {
   private void OnTriggerEnter(Collider other) {
     bool isPlayer = other.gameObject.tag == "Player";
     bool isArena = other.gameObject.tag == "Arena";
-    bool isGround = IsLayer(_WhatIsGround, other);
+    bool isGround = IsLayer(WhatIsGround, other);
     bool isRocket = other.gameObject.tag == "EnemyRocket" || other.gameObject.tag == "PlayerRocket";
     if (!isArena && !isRocket && (isGround || (isPlayer && _IsEnemyRocket || !isPlayer && !_IsEnemyRocket))) {
       Destroy(this.gameObject);
