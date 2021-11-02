@@ -1238,6 +1238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47022bf86c5bb8649a4981ee05206b24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RocketManager: {fileID: 0}
   PickupAnimSpeed: 6
   ShotDelay: 0
   ShotCount: 0
@@ -1253,7 +1254,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c11986d0fdf66d4e8141f10cabf7ee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsDead: 0
+  GameOverEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1141491862458821845
 GameObject:
   m_ObjectHideFlags: 0

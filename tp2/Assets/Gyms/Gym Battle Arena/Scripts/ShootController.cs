@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class ShootController : MonoBehaviour {
   // Serialized attributes
+  [SerializeField] RocketManager RocketManager;
   [SerializeField] float PickupAnimSpeed = 6f;
   [SerializeField] float ShotDelay = 0f; // Time between shots (in seconds)
-
-  [SerializeField] int ShotCount;
 
   // Private attributes
   private bool _Grounded { get; set; }
@@ -21,7 +20,6 @@ public class ShootController : MonoBehaviour {
   }
 
   void Start() {
-    ShotCount = 0;
     _CanShoot = true;
     SetShotDuration();
   }
@@ -38,6 +36,7 @@ public class ShootController : MonoBehaviour {
 
     _CanShoot = false;
     _Anim.SetTrigger("Pickup");
+    RocketManager.Spawn(this.gameObject);
     yield return new WaitForSeconds(_ShotDuration + ShotDelay);
     _CanShoot = true;
   }

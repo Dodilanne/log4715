@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
   // Serialized attributes
+  [SerializeField] RocketManager RocketManager;
   [SerializeField] LayerMask WhatIsGround;
+  [SerializeField] float ShootSpeed = 2f;
 
   // Private attributes
   bool _Grounded { get; set; }
@@ -14,6 +16,16 @@ public class EnemyController : MonoBehaviour {
 
   void Start() {
     _Grounded = false;
+    InvokeRepeating("Shoot", 2f, ShootSpeed);
+  }
+
+  private void Die() {
+    Destroy(this.gameObject);
+  }
+
+  private void Shoot() {
+    _Anim.SetTrigger("Pickup");
+    RocketManager.Spawn(this.gameObject);
   }
 
   // Collision avec le sol
@@ -26,6 +38,12 @@ public class EnemyController : MonoBehaviour {
     if (coll.relativeVelocity.y > 0) {
       _Grounded = true;
       _Anim.SetBool("Grounded", _Grounded);
+    }
+  }
+
+  private void OnTriggerEnter(Collider other) {
+    if (other.tag == "PlayerRocket") {
+      Die();
     }
   }
 }

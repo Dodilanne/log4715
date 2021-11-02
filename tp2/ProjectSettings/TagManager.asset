@@ -6,6 +6,8 @@ TagManager:
   tags:
   - JerryCan
   - Enemy
+  - PlayerRocket
+  - EnemyRocket
   layers:
   - Default
   - TransparentFX
