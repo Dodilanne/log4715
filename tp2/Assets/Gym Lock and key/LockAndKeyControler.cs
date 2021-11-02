@@ -32,7 +32,7 @@ public class LockAndKeyControler : MonoBehaviour
         Debug.Log("hit door");
         if (keyNumber >=1) {
           keyNumber--;
-          // TODO Open door
+          coll.gameObject.transform.Rotate(0,0,-90);
         }
         else {
           // TODO popup "no key"
