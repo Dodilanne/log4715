@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - JerryCan
+  - Enemy
+  - PlayerRocket
+  - EnemyRocket
+  - Arena
   layers:
   - Default
   - TransparentFX
