@@ -12,6 +12,8 @@ TagManager:
   - EnemyRocket
   - Arena
   - OilCan
+  - HealthBar
+  - Wall
   layers:
   - Default
   - TransparentFX
