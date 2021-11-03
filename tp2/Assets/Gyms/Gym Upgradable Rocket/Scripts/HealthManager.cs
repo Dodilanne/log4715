@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,8 +22,13 @@ public class HealthManager : MonoBehaviour {
     _healthBar.transform.position = Camera.main.WorldToScreenPoint(this.transform.position + healthBarOffset);
   }
 
-  private void _die() {
-    Destroy(this.gameObject);
+  private IEnumerator _die() {
+    Quaternion rotation = this.transform.rotation;
+    this.transform.Rotate(Vector3.forward, 90);
+    this.transform.Rotate(Vector3.left, 45);
+    yield return new WaitForSeconds(2f);
+    _setCurrentHealth(maxHealth);
+    this.transform.rotation = rotation;
   }
 
   private void _setCurrentHealth(int health) {
@@ -32,7 +38,9 @@ public class HealthManager : MonoBehaviour {
 
   public void Hit(int amount) {
     _setCurrentHealth(Math.Max(0, _currentHealth - amount));
-    if (_currentHealth == 0) _die();
+    if (_currentHealth == 0) {
+      StartCoroutine(_die());
+    }
   }
 
   public void Heal(int amount) {

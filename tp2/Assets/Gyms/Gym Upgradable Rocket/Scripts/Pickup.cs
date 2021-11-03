@@ -1,4 +1,3 @@
-using System.Timers;
 using UnityEngine;
 
 public class Pickup : MonoBehaviour {
@@ -7,9 +6,11 @@ public class Pickup : MonoBehaviour {
   private bool _isActive = false;
   private Quaternion _initialRotation;
   private Shooter _player;
+  private HudManager _hudManager;
 
   private void Awake() {
     _initialRotation = this.transform.rotation;
+    _hudManager = GameObject.FindObjectOfType<HudManager>();
   }
 
   private void Update() {
@@ -21,12 +22,15 @@ public class Pickup : MonoBehaviour {
 
     if (_isActive && _player != null && Input.GetButtonDown("Open")) {
       _player.EquipRocket(rocketPrefab);
+      Rocket rocket = rocketPrefab.GetComponent<Rocket>();
+      _hudManager.ShowEquipment(this.gameObject.name, rocket.Damage, rocket.Speed);
     }
   }
 
   private void OnTriggerEnter(Collider other) {
     if (other.tag == "Player") {
       _isActive = true;
+      _hudManager.ShowPickup(this.gameObject.name);
       _player = other.gameObject.GetComponentInChildren<Shooter>();
     }
   }
@@ -34,6 +38,7 @@ public class Pickup : MonoBehaviour {
   private void OnTriggerExit(Collider other) {
     if (other.tag == "Player") {
       _isActive = false;
+      _hudManager.HidePickup();
       _player = null;
     }
   }

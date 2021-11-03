@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Android;
 
 public class Rocket : MonoBehaviour {
   [SerializeField] int damage = 20;
@@ -11,6 +12,9 @@ public class Rocket : MonoBehaviour {
     this.transform.Rotate(Vector3.right, 90);
     this.GetComponent<Rigidbody>().velocity = (isFacingLeft ? Vector3.back : Vector3.forward) * speed;
   }
+
+  public int Damage { get => damage; }
+  public float Speed { get => speed; }
 
   private void _removeFromScene() {
     Destroy(this.gameObject);
