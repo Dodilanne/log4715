@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour {
 
     if (_TouchingWall) {
       if (Input.GetButtonDown("Jump")) {
+        
         var horizontal = Input.GetAxis("Horizontal") * MoveSpeed;
         var direction = (horizontal < 0) ? 1 : -1;
         _Rb.velocity = new Vector3(0, 0, 0);
@@ -98,13 +99,7 @@ public class PlayerController : MonoBehaviour {
 
         FlipCharacter(direction);
       }
-      StartCoroutine(WallJumpTimeout());
     }
-  }
-
-  private IEnumerator WallJumpTimeout() {
-    yield return new WaitForSeconds(.3f);
-    _TouchingWall = false;
   }
 
   void StopDash() {
@@ -147,4 +142,11 @@ public class PlayerController : MonoBehaviour {
       _Anim.SetBool("Grounded", _Grounded);
     }
   }
+
+   void OnCollisionExit(Collision other)
+    {
+        if(other.gameObject.layer==3) {
+          _TouchingWall = false;
+        }
+    }
 }
