@@ -11,6 +11,7 @@ TagManager:
   - PlayerRocket
   - EnemyRocket
   - Arena
+  - OilCan
   layers:
   - Default
   - TransparentFX

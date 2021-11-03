@@ -4,4 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Gym Score/ScoreScene.unity
+    guid: e23b356d7679945edb78859a4cdc1f0f
+  - enabled: 0
+    path: Assets/Supercyan Character Pack Free Sample/Scenes/DemoScene.unity
+    guid: 9ab95d0d0e1eb5f4fbbefd2348cf5237
+  - enabled: 1
+    path: Assets/Gym Score/ScoreResultScene.unity
+    guid: 7e6537ed108d84c49831603ba8c39f9f
+  m_configObjects: {}
