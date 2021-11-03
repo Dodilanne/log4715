@@ -1119,6 +1119,7 @@ GameObject:
   - component: {fileID: 1139868623410432327}
   - component: {fileID: 1139868623410432324}
   - component: {fileID: -460530004189297783}
+  - component: {fileID: 24586470218077506}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1242,6 +1243,20 @@ MonoBehaviour:
   maxHealth: 100
   initialHealth: -1
   healthBarOffset: {x: 0, y: 1.25, z: 0}
+--- !u!114 &24586470218077506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141484560268116079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76da5745f95d6b44db725928920fee02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rocketsManager: {fileID: 0}
+  _equippedRocket: {fileID: 0}
 --- !u!1 &1141491862458821845
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,10 +17,6 @@ public class HealthManager : MonoBehaviour {
     _setCurrentHealth(initialHealth >= 0 ? initialHealth : maxHealth);
   }
 
-  private void Start() {
-    InvokeRepeating("Hit", 1f, 1f);
-  }
-
   private void Update() {
     _healthBar.transform.position = Camera.main.WorldToScreenPoint(this.transform.position + healthBarOffset);
   }
@@ -32,16 +28,11 @@ public class HealthManager : MonoBehaviour {
   private void _setCurrentHealth(int health) {
     _currentHealth = health;
     _healthBar.value = health;
-
-  }
-
-  public void Hit() {
-    _setCurrentHealth(Math.Max(0, _currentHealth - 20));
-    // if (_currentHealth == 0) Die();
   }
 
   public void Hit(int amount) {
     _setCurrentHealth(Math.Max(0, _currentHealth - amount));
+    if (_currentHealth == 0) _die();
   }
 
   public void Heal(int amount) {
