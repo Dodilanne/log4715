@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
   // Déclaration des variables
   bool _Grounded { get; set; }
   bool _Flipped { get; set; }
+  bool _TouchingWall { get; set; }
   Animator _Anim { get; set; }
   Rigidbody _Rb { get; set; }
   Camera _MainCamera { get; set; }
@@ -18,7 +19,7 @@ public class PlayerController : MonoBehaviour {
   // Valeurs exposées
   [SerializeField]
   float MoveSpeed = 5.0f;
-  
+
   [SerializeField]
   float DashSpeed = 10.0f;
   [SerializeField]
@@ -39,6 +40,9 @@ public class PlayerController : MonoBehaviour {
   [SerializeField]
   LayerMask WhatIsGround;
 
+  [SerializeField]
+  LayerMask WhatIsWall;
+
   // Awake se produit avait le Start. Il peut être bien de régler les références dans cette section.
   void Awake() {
     _Anim = GetComponent<Animator>();
@@ -50,11 +54,12 @@ public class PlayerController : MonoBehaviour {
   void Start() {
     _Grounded = false;
     _Flipped = false;
+    _TouchingWall = false;
   }
 
   // Vérifie les entrées de commandes du joueur
   void Update() {
-    var horizontal = dashing ? dashDirection * DashSpeed :  Input.GetAxis("Horizontal") * MoveSpeed;
+    var horizontal = dashing ? dashDirection * DashSpeed : Input.GetAxis("Horizontal") * MoveSpeed;
     HorizontalMove(horizontal);
     FlipCharacter(horizontal);
     CheckInput();
@@ -81,9 +86,28 @@ public class PlayerController : MonoBehaviour {
       dashDirection = Input.GetAxis("Horizontal") < 0 ? -1 : 1;
       Invoke("StopDash", DashDuration);
     }
+
+    if (_TouchingWall) {
+      if (Input.GetButtonDown("Jump")) {
+        var horizontal = Input.GetAxis("Horizontal") * MoveSpeed;
+        var direction = (horizontal < 0) ? 1 : -1;
+        _Rb.velocity = new Vector3(0, 0, 0);
+        _Rb.AddForce(new Vector3(0, JumpForce * 0.5f, 0), ForceMode.Impulse);
+        _Rb.AddForce(new Vector3(0, 0, direction * JumpForce * MoveSpeed * 2f), ForceMode.Impulse);
+        _Anim.SetBool("Jump", true);
+
+        FlipCharacter(direction);
+      }
+      StartCoroutine(WallJumpTimeout());
+    }
   }
 
-  void StopDash(){
+  private IEnumerator WallJumpTimeout() {
+    yield return new WaitForSeconds(.3f);
+    _TouchingWall = false;
+  }
+
+  void StopDash() {
     dashing = false;
   }
 
@@ -108,6 +132,11 @@ public class PlayerController : MonoBehaviour {
 
   // Collision avec le sol
   void OnCollisionEnter(Collision coll) {
+    // On s'assure de bien être en contact avec le mur
+    if (((coll.gameObject.layer == 3))) {
+      _TouchingWall = true;
+    }
+
     // On s'assure de bien être en contact avec le sol
     if ((WhatIsGround & (1 << coll.gameObject.layer)) == 0)
       return;
