@@ -29,15 +29,15 @@ public class ScoreResult : MonoBehaviour
     }
 
     void calculateScore() {
-        if(elapsedTime < 10) {
+        if(elapsedTime <= 10) {
             finalScore+= 50;
             timerScore = " (+50 points)";
         }
-        else if( elapsedTime > 10 && elapsedTime < 20) {
+        else if( elapsedTime > 10 && elapsedTime <= 20) {
             finalScore+= 30;
             timerScore = " (+30 points)";
         }
-        else if(elapsedTime > 20 && elapsedTime < 30) {
+        else if(elapsedTime > 20 && elapsedTime <= 30) {
             finalScore+= 10;
             timerScore = " (+10 points)";
         }
