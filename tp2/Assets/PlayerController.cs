@@ -84,6 +84,7 @@ public class PlayerController : MonoBehaviour {
     if (Input.GetButtonDown(dashInputAction) && CanDash()) {
       dashing = true;
       dashDirection = Input.GetAxis("Horizontal") < 0 ? -1 : 1;
+      Physics.IgnoreLayerCollision(7, 8);
       Invoke("StopDash", DashDuration);
     }
 
@@ -104,6 +105,7 @@ public class PlayerController : MonoBehaviour {
 
   void StopDash() {
     dashing = false;
+    Physics.IgnoreLayerCollision(7, 8, false);
   }
 
   bool CanDash() {
