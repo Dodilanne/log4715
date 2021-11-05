@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Gyms/Gym Score/ScoreScene.unity
+    path: Assets/Gyms/Gym Score/Gym_2.2.2.unity
     guid: e23b356d7679945edb78859a4cdc1f0f
   - enabled: 0
     path: Assets/Imports/Supercyan Character Pack Free Sample/Scenes/DemoScene.unity
