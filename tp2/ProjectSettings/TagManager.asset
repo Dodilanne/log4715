@@ -15,6 +15,7 @@ TagManager:
   - HealthBar
   - Wall
   - Destructible
+  - Life
   layers:
   - Default
   - TransparentFX
