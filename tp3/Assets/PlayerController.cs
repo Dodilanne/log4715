@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour {
 
   [SerializeField]
   float JumpForce = 10f;
+  [SerializeField]
+  float WallJumpVerticalFactor = 10f;
 
   [SerializeField]
   LayerMask WhatIsGround;
@@ -94,7 +96,7 @@ public class PlayerController : MonoBehaviour {
         var horizontal = Input.GetAxis("Horizontal") * MoveSpeed;
         var direction = (horizontal < 0) ? 1 : -1;
         _Rb.velocity = new Vector3(0, 0, 0);
-        _Rb.AddForce(new Vector3(0, JumpForce * 0.5f, 0), ForceMode.Impulse);
+        _Rb.AddForce(new Vector3(0, JumpForce * 0.5f * WallJumpVerticalFactor, 0), ForceMode.Impulse);
         _Rb.AddForce(new Vector3(0, 0, direction * JumpForce * MoveSpeed * 2f), ForceMode.Impulse);
         _Anim.SetBool("Jump", true);
 
