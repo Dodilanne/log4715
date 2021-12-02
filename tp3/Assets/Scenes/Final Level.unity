@@ -6910,8 +6910,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1609026567}
     m_Modifications:
-    - target: {fileID: -4656910322982085817, guid: 9ed6f51ffea1de146883b3fa081d6a7a,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: WhatIsGround.m_Bits
       value: 256
       objectReference: {fileID: 0}
@@ -6974,6 +6973,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390314712002614940, guid: 9ed6f51ffea1de146883b3fa081d6a7a,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390314712002614940, guid: 9ed6f51ffea1de146883b3fa081d6a7a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ed6f51ffea1de146883b3fa081d6a7a, type: 3}

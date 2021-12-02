@@ -1025,8 +1025,9 @@ GameObject:
   - component: {fileID: 1139868623410432320}
   - component: {fileID: 1139868623410432326}
   - component: {fileID: 1139868623410432327}
-  - component: {fileID: -4656910322982085817}
   - component: {fileID: -7141734370990474809}
+  - component: {fileID: 5477513891895967931}
+  - component: {fileID: -8151503034581933396}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -1112,21 +1113,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.2
   m_Center: {x: 0, y: 0.17, z: 0}
---- !u!114 &-4656910322982085817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1141484560268116079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99948c9e910204f5cbfe5e31e671dfbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!114 &-7141734370990474809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1142,6 +1128,37 @@ MonoBehaviour:
   maxHealth: 100
   initialHealth: -1
   healthBarOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &5477513891895967931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141484560268116079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76da5745f95d6b44db725928920fee02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _equippedRocket: {fileID: 1913703475352026, guid: 95aa0ab7dae262a42a4f14d19278b88b,
+    type: 3}
+--- !u!114 &-8151503034581933396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141484560268116079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05faabdc8ab9ef24b927d49a761d67c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RocketManager: {fileID: 0}
+  WhatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
+  ShootSpeed: 2
 --- !u!1 &1141491862458821845
 GameObject:
   m_ObjectHideFlags: 0

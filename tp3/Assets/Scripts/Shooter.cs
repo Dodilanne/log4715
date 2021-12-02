@@ -1,15 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class Shooter : MonoBehaviour {
-  [SerializeField] RocketsManager rocketsManager;
 
   [SerializeField] private GameObject _equippedRocket;
   private bool _isReloading = false;
 
   private Animator _anim;
+  private RocketsManager _rocketsManager;
   private float _shotDuration = -1f;
 
   public void EquipRocket(GameObject rocketPrefab) {
@@ -31,18 +32,22 @@ public class Shooter : MonoBehaviour {
     }
   }
 
-  public IEnumerator Shoot() {
+  public IEnumerator Shoot(Action action = null) {
     if (_shotDuration < 0) yield return false;
 
     _isReloading = true;
     _anim.SetTrigger("Pickup");
-    rocketsManager.Spawn(this.gameObject, _equippedRocket);
+    _rocketsManager.Spawn(this.gameObject, _equippedRocket);
     yield return new WaitForSeconds(_shotDuration);
     _isReloading = false;
+    if (action != null) {
+      action();
+    }
   }
 
   void Awake() {
     _anim = GetComponent<Animator>();
+    _rocketsManager = GameObject.FindObjectOfType<RocketsManager>();
   }
 
   void Start() {
