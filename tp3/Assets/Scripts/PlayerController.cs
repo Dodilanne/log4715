@@ -25,8 +25,6 @@ public class PlayerController : MonoBehaviour {
   [SerializeField]
   float DashDuration = 1.0f;
   [SerializeField]
-  float DashRegenTime = 1.0f;
-  [SerializeField]
   bool canDash = true;
   bool dashing = false;
   int dashDirection = 0;
