@@ -10,9 +10,11 @@ public class HealthManager : MonoBehaviour {
 
   private int _currentHealth;
   private Slider _healthBar;
+  private GameController _game;
 
   private void Awake() {
     _healthBar = this.gameObject.GetComponentInChildren<Slider>();
+    _game = GameObject.FindObjectOfType<GameController>();
 
     _healthBar.maxValue = maxHealth;
     _setCurrentHealth(initialHealth >= 0 ? initialHealth : maxHealth);
@@ -22,13 +24,18 @@ public class HealthManager : MonoBehaviour {
     _healthBar.transform.position = Camera.main.WorldToScreenPoint(this.transform.position + healthBarOffset);
   }
 
-  private IEnumerator _die() {
+  private bool _isEnemy() {
+    return this.tag == "Enemy";
+  }
+
+  private void _die() {
     Quaternion rotation = this.transform.rotation;
     this.transform.Rotate(Vector3.forward, 90);
     this.transform.Rotate(Vector3.left, 45);
-    yield return new WaitForSeconds(2f);
-    _setCurrentHealth(maxHealth);
-    this.transform.rotation = rotation;
+
+    if (_isEnemy()) {
+      _game.RemoveEnemy();
+    }
   }
 
   private void _setCurrentHealth(int health) {
@@ -39,7 +46,7 @@ public class HealthManager : MonoBehaviour {
   public void Hit(int amount) {
     _setCurrentHealth(Math.Max(0, _currentHealth - amount));
     if (_currentHealth == 0) {
-      StartCoroutine(_die());
+      _die();
     }
   }
 

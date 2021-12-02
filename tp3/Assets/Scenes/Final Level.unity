@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3005,6 +3005,11 @@ PrefabInstance:
       propertyPath: DashDuration
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 1139868623410432324, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: WallJumpVerticalFactor
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1141484560268116079, guid: 655a6367e440ae4458928409278b196f,
         type: 3}
       propertyPath: m_Name
@@ -3054,6 +3059,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484915913023544401, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484915913023544401, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 655a6367e440ae4458928409278b196f, type: 3}

@@ -20,6 +20,10 @@ public class Shooter : MonoBehaviour {
     return !_isReloading && _equippedRocket != null;
   }
 
+  private bool _isEnemy() {
+    return this.tag == "Enemy";
+  }
+
   private void SetShotDuration() {
     IEnumerable<AnimationClip> clips = _anim.runtimeAnimatorController.animationClips.Where(clip => clip.name == "pickup");
     if (clips.Count() > 0) {
@@ -27,7 +31,7 @@ public class Shooter : MonoBehaviour {
     }
   }
 
-  private IEnumerator Shoot() {
+  public IEnumerator Shoot() {
     if (_shotDuration < 0) yield return false;
 
     _isReloading = true;
@@ -47,7 +51,7 @@ public class Shooter : MonoBehaviour {
   }
 
   private void Update() {
-    if (_canShoot() && Input.GetButtonDown("Fire1")) {
+    if (!_isEnemy() && _canShoot() && Input.GetButtonDown("Fire1")) {
       StartCoroutine(Shoot());
     }
   }
