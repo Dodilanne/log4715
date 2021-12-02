@@ -1156,7 +1156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WhatIsGround:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 448
   ShootSpeed: 2
 --- !u!1 &1141491862458821845
 GameObject:

@@ -31,27 +31,33 @@ public class HealthManager : MonoBehaviour {
     return this.tag == "Enemy";
   }
 
-  private void _die() {
-    Quaternion rotation = this.transform.rotation;
-    this.transform.Rotate(Vector3.forward, 90);
-    this.transform.Rotate(Vector3.left, 45);
-
-    if (_isEnemy()) {
-      _game.RemoveEnemy();
-    } else {
-      _uiManager.GameOver();
-    }
-  }
 
   private void _setCurrentHealth(int health) {
     _currentHealth = health;
     _healthBar.value = health;
   }
 
+  public void Die() {
+    Quaternion rotation = this.transform.rotation;
+    this.transform.Rotate(Vector3.forward, 90);
+    this.transform.Rotate(Vector3.left, 45);
+
+    _setCurrentHealth(0);
+
+    if (_isEnemy()) {
+      _game.RemoveEnemy();
+      this.gameObject.layer = 9; // Dead enemies
+      GetComponent<EnemyController>().Die();
+      this.transform.Find("Health Bar").gameObject.SetActive(false);
+    } else {
+      _uiManager.GameOver();
+    }
+  }
+
   public void Hit(int amount) {
     _setCurrentHealth(Math.Max(0, _currentHealth - amount));
     if (_currentHealth == 0) {
-      _die();
+      Die();
     }
   }
 

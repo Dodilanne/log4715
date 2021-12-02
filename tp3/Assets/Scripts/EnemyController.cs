@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour {
   Animator _Anim { get; set; }
   Shooter _Shooter { get; set; }
   private bool _IsAttacking = false;
+  private bool _isDead = false;
 
   private IEnumerator _enableShooting() {
     yield return new WaitForSeconds(ShootSpeed);
@@ -30,7 +31,7 @@ public class EnemyController : MonoBehaviour {
   }
 
   private void Update() {
-    if (!_IsAttacking) {
+    if (!_isDead && !_IsAttacking) {
       _IsAttacking = true;
       StartCoroutine(_shooter.Shoot(() => {
         StartCoroutine(_enableShooting());
@@ -38,8 +39,17 @@ public class EnemyController : MonoBehaviour {
     }
   }
 
+  public void Die() {
+    _isDead = true;
+  }
+
   // Collision avec le sol
   void OnCollisionEnter(Collision coll) {
+    // If enenmy collides with player and enemy is not dead
+    if (coll.gameObject.tag == "Player" && this.gameObject.layer != 9) {
+      coll.gameObject.GetComponentInChildren<HealthManager>().Die();
+    }
+
     // On s'assure de bien être en contact avec le sol
     if ((WhatIsGround & (1 << coll.gameObject.layer)) == 0)
       return;
@@ -49,5 +59,6 @@ public class EnemyController : MonoBehaviour {
       _Grounded = true;
       _Anim.SetBool("Grounded", _Grounded);
     }
+
   }
 }
