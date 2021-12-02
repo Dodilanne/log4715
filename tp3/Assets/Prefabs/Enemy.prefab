@@ -1140,7 +1140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76da5745f95d6b44db725928920fee02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _equippedRocket: {fileID: 1913703475352026, guid: 95aa0ab7dae262a42a4f14d19278b88b,
+  _equippedRocket: {fileID: 1913703475352026, guid: e020e2e23aec2c14087df80147f709e8,
     type: 3}
 --- !u!114 &-8151503034581933396
 MonoBehaviour:
@@ -1154,7 +1154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05faabdc8ab9ef24b927d49a761d67c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RocketManager: {fileID: 0}
   WhatIsGround:
     serializedVersion: 2
     m_Bits: 256

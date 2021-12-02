@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour {
@@ -11,10 +12,12 @@ public class HealthManager : MonoBehaviour {
   private int _currentHealth;
   private Slider _healthBar;
   private GameController _game;
+  private UIManager _uiManager;
 
   private void Awake() {
     _healthBar = this.gameObject.GetComponentInChildren<Slider>();
     _game = GameObject.FindObjectOfType<GameController>();
+    _uiManager = GameObject.FindObjectOfType<UIManager>();
 
     _healthBar.maxValue = maxHealth;
     _setCurrentHealth(initialHealth >= 0 ? initialHealth : maxHealth);
@@ -35,6 +38,8 @@ public class HealthManager : MonoBehaviour {
 
     if (_isEnemy()) {
       _game.RemoveEnemy();
+    } else {
+      _uiManager.GameOver();
     }
   }
 

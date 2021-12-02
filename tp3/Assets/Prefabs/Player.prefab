@@ -1118,7 +1118,6 @@ GameObject:
   - component: {fileID: 1139868623410432326}
   - component: {fileID: 1139868623410432327}
   - component: {fileID: 1139868623410432324}
-  - component: {fileID: 2456711422750037113}
   - component: {fileID: 7280324126044899417}
   - component: {fileID: 994827356417235804}
   m_Layer: 0
@@ -1233,21 +1232,6 @@ MonoBehaviour:
   WhatIsWall:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &2456711422750037113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1141484560268116079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c11986d0fdf66d4e8141f10cabf7ee5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameOverEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &7280324126044899417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1260,7 +1244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76da5745f95d6b44db725928920fee02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rocketsManager: {fileID: 0}
   _equippedRocket: {fileID: 0}
 --- !u!114 &994827356417235804
 MonoBehaviour:
@@ -1277,6 +1260,21 @@ MonoBehaviour:
   maxHealth: 100
   initialHealth: -1
   healthBarOffset: {x: 0, y: 1.25, z: 0}
+  GameOverEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1141491862458821845
 GameObject:
   m_ObjectHideFlags: 0
