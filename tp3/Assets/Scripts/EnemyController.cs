@@ -11,10 +11,12 @@ public class EnemyController : MonoBehaviour {
   private GameController _Game;
   bool _Grounded { get; set; }
   Animator _Anim { get; set; }
+  Shooter _Shooter { get; set; }
   private bool _IsAttacking = false;
 
   void Awake() {
     _Anim = GetComponent<Animator>();
+    _Shooter = GetComponent<Shooter>();
     _Game = GameObject.FindObjectOfType<GameController>();
   }
 
@@ -25,13 +27,8 @@ public class EnemyController : MonoBehaviour {
   private void Update() {
     if (!_IsAttacking && _Game.HasEntered) {
       _IsAttacking = true;
-      InvokeRepeating("Shoot", 2f, ShootSpeed);
+      StartCoroutine(_Shooter.Shoot());
     }
-  }
-
-  private void Die() {
-    _Game.RemoveEnemy();
-    Destroy(this.gameObject);
   }
 
   private void Shoot() {
@@ -49,12 +46,6 @@ public class EnemyController : MonoBehaviour {
     if (coll.relativeVelocity.y > 0) {
       _Grounded = true;
       _Anim.SetBool("Grounded", _Grounded);
-    }
-  }
-
-  private void OnTriggerEnter(Collider other) {
-    if (other.tag == "PlayerRocket") {
-      Die();
     }
   }
 }

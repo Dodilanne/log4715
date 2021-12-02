@@ -25,9 +25,9 @@ public class Rocket : MonoBehaviour {
     if (other.tag == "Destructible") {
       _removeFromScene();
       Destructible destructible = other.gameObject.GetComponentInChildren<Destructible>();
-      if(destructible != null){
+      if (destructible != null) {
         destructible.Destruct();
-      }else{
+      } else {
         Debug.Log("Destructible has no Destructible component");
       }
     };
