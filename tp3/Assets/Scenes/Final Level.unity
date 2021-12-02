@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 47950126}
   m_Layer: 0
   m_Name: Door (Exit)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -292,7 +292,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 79034930}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 97254441}
   m_Layer: 6
   m_Name: West Wall (23)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -516,7 +516,7 @@ GameObject:
   - component: {fileID: 130603727}
   m_Layer: 0
   m_Name: Door (Entrance)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -583,7 +583,7 @@ GameObject:
   - component: {fileID: 136417022}
   m_Layer: 6
   m_Name: West Wall (9)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -679,7 +679,7 @@ GameObject:
   - component: {fileID: 193434179}
   m_Layer: 6
   m_Name: West Wall (8)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -896,7 +896,7 @@ GameObject:
   - component: {fileID: 224435057}
   m_Layer: 6
   m_Name: West Wall (36)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -992,7 +992,7 @@ GameObject:
   - component: {fileID: 227203557}
   m_Layer: 6
   m_Name: West Wall (32)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1088,7 +1088,7 @@ GameObject:
   - component: {fileID: 243771891}
   m_Layer: 6
   m_Name: West Wall (34)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1184,7 +1184,7 @@ GameObject:
   - component: {fileID: 256121067}
   m_Layer: 6
   m_Name: West Wall (21)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1407,7 +1407,7 @@ GameObject:
   - component: {fileID: 360437584}
   m_Layer: 6
   m_Name: East Wall (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1503,7 +1503,7 @@ GameObject:
   - component: {fileID: 360917141}
   m_Layer: 6
   m_Name: West Wall (40)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1680,7 +1680,7 @@ GameObject:
   - component: {fileID: 375436677}
   m_Layer: 6
   m_Name: West Wall (33)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1776,7 +1776,7 @@ GameObject:
   - component: {fileID: 417065758}
   m_Layer: 6
   m_Name: West Wall (22)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2081,7 +2081,7 @@ GameObject:
   - component: {fileID: 511505698}
   m_Layer: 6
   m_Name: West Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2177,7 +2177,7 @@ GameObject:
   - component: {fileID: 529748795}
   m_Layer: 6
   m_Name: West Wall (39)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2853,7 +2853,7 @@ GameObject:
   - component: {fileID: 731381942}
   m_Layer: 6
   m_Name: West Wall (26)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3028,7 +3028,7 @@ GameObject:
   - component: {fileID: 771234634}
   m_Layer: 6
   m_Name: West Wall (15)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3203,7 +3203,7 @@ GameObject:
   - component: {fileID: 801255585}
   m_Layer: 6
   m_Name: West Wall (38)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3398,6 +3398,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1139868623047117463, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1139868623410432324, guid: 655a6367e440ae4458928409278b196f,
         type: 3}
       propertyPath: canDash
@@ -3418,10 +3423,210 @@ PrefabInstance:
       propertyPath: WallJumpVerticalFactor
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1139976444060882981, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140007360827516491, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140039965878548291, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140043847849161723, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140050367989694389, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140070743741469773, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140078212711025823, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140102113194591725, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140732848477004465, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140732994169230917, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140733635884341073, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140790717206170957, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140830619516681211, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140851629136311433, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140879462450631535, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140899290908764121, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140901256758404177, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140922044560139223, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140953286422706367, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140964863642165701, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141038507938820429, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141040009457012431, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141046417516085805, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141052606663957855, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141055921959572189, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141061854195578949, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141092837035240567, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141381877567758751, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141443929458991105, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141471814784537969, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1141484560268116079, guid: 655a6367e440ae4458928409278b196f,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141484560268116079, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141491862458821845, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141493848185144367, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141520607748489409, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141529568782564009, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141532775430475833, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141543585060567489, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141618200444025203, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141625358522309557, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141653459569419863, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1786885058072689354, guid: 655a6367e440ae4458928409278b196f,
         type: 3}
@@ -3438,6 +3643,26 @@ PrefabInstance:
       propertyPath: rocketsManager
       value: 
       objectReference: {fileID: 679712221}
+    - target: {fileID: 7484915912457719444, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484915912910843491, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484915912983876333, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484915913023544398, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7484915913023544401, guid: 655a6367e440ae4458928409278b196f,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -3447,6 +3672,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484915913287871702, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484915914141826002, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 655a6367e440ae4458928409278b196f, type: 3}
@@ -3677,7 +3912,7 @@ GameObject:
   - component: {fileID: 920333360}
   m_Layer: 6
   m_Name: West Wall (19)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3773,7 +4008,7 @@ GameObject:
   - component: {fileID: 926388651}
   m_Layer: 6
   m_Name: West Wall (4)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3971,7 +4206,7 @@ GameObject:
   - component: {fileID: 950327728}
   m_Layer: 6
   m_Name: West Wall (6)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4067,7 +4302,7 @@ GameObject:
   - component: {fileID: 959047971}
   m_Layer: 6
   m_Name: East Wall (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4163,7 +4398,7 @@ GameObject:
   - component: {fileID: 971339803}
   m_Layer: 6
   m_Name: West Wall (20)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4259,7 +4494,7 @@ GameObject:
   - component: {fileID: 1000593257}
   m_Layer: 6
   m_Name: West Wall (27)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4355,7 +4590,7 @@ GameObject:
   - component: {fileID: 1020642854}
   m_Layer: 6
   m_Name: West Wall (41)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4451,7 +4686,7 @@ GameObject:
   - component: {fileID: 1025341260}
   m_Layer: 6
   m_Name: West Wall (5)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4703,7 +4938,7 @@ GameObject:
   - component: {fileID: 1048940199}
   m_Layer: 6
   m_Name: West Wall (30)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4799,7 +5034,7 @@ GameObject:
   - component: {fileID: 1110688389}
   m_Layer: 6
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4971,7 +5206,7 @@ GameObject:
   - component: {fileID: 1210612610}
   m_Layer: 6
   m_Name: West Wall (18)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5146,7 +5381,7 @@ GameObject:
   - component: {fileID: 1319793445}
   m_Layer: 6
   m_Name: West Wall (7)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5242,7 +5477,7 @@ GameObject:
   - component: {fileID: 1367181178}
   m_Layer: 6
   m_Name: East Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5338,7 +5573,7 @@ GameObject:
   - component: {fileID: 1382190428}
   m_Layer: 6
   m_Name: West Wall (31)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5434,7 +5669,7 @@ GameObject:
   - component: {fileID: 1401700549}
   m_Layer: 6
   m_Name: Ceiling
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5675,7 +5910,7 @@ GameObject:
   - component: {fileID: 1444092587}
   m_Layer: 6
   m_Name: West Wall (16)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5771,7 +6006,7 @@ GameObject:
   - component: {fileID: 1450847693}
   m_Layer: 6
   m_Name: West Wall (29)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5867,7 +6102,7 @@ GameObject:
   - component: {fileID: 1472394225}
   m_Layer: 6
   m_Name: West Wall (10)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5963,7 +6198,7 @@ GameObject:
   - component: {fileID: 1525032051}
   m_Layer: 6
   m_Name: West Wall (37)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6059,7 +6294,7 @@ GameObject:
   - component: {fileID: 1601274960}
   m_Layer: 6
   m_Name: West Wall (24)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6186,7 +6421,7 @@ GameObject:
   - component: {fileID: 1625531370}
   m_Layer: 6
   m_Name: Floor (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6482,7 +6717,7 @@ GameObject:
   - component: {fileID: 1667640032}
   m_Layer: 6
   m_Name: West Wall (11)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6650,7 +6885,7 @@ GameObject:
   - component: {fileID: 1679385604}
   m_Layer: 6
   m_Name: West Wall (25)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6746,7 +6981,7 @@ GameObject:
   - component: {fileID: 1688979744}
   m_Layer: 6
   m_Name: West Wall (42)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6842,7 +7077,7 @@ GameObject:
   - component: {fileID: 1700109428}
   m_Layer: 6
   m_Name: West Wall (14)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7102,7 +7337,7 @@ GameObject:
   - component: {fileID: 1847794754}
   m_Layer: 6
   m_Name: West Wall (17)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7198,7 +7433,7 @@ GameObject:
   - component: {fileID: 1848931068}
   m_Layer: 6
   m_Name: West Wall (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7293,7 +7528,7 @@ GameObject:
   - component: {fileID: 1908141645}
   m_Layer: 0
   m_Name: Instructions
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7400,7 +7635,7 @@ GameObject:
   - component: {fileID: 1959011861}
   m_Layer: 6
   m_Name: West Wall (35)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7496,7 +7731,7 @@ GameObject:
   - component: {fileID: 1969535951}
   m_Layer: 6
   m_Name: West Wall (12)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7705,7 +7940,7 @@ GameObject:
   - component: {fileID: 2031083626}
   m_Layer: 6
   m_Name: West Wall (28)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7889,7 +8124,7 @@ GameObject:
   - component: {fileID: 2081796101}
   m_Layer: 6
   m_Name: West Wall (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7985,7 +8220,7 @@ GameObject:
   - component: {fileID: 2116808368}
   m_Layer: 6
   m_Name: West Wall (13)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8157,7 +8392,7 @@ GameObject:
   - component: {fileID: 2131035618}
   m_Layer: 6
   m_Name: West Wall (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
