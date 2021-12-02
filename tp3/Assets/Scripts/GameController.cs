@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour {
   [System.NonSerialized] public bool HasEntered = false;
 
   private void Start() {
-    EnemiesCount = GameObject.Find("Enemies").transform.childCount;
+    // EnemiesCount = GameObject.Find("Enemies").transform.childCount;
   }
 
   public static void Pause() {
@@ -21,10 +21,10 @@ public class GameController : MonoBehaviour {
   }
 
   public void RemoveEnemy() {
-    EnemiesCount--;
-    if (EnemiesCount == 0) {
-      EndFight();
-    }
+    // EnemiesCount--;
+    // if (EnemiesCount == 0) {
+    //   EndFight();
+    // }
   }
 
   public void EnterArena() {

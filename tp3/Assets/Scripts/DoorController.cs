@@ -4,15 +4,19 @@ using UnityEngine.Events;
 public class DoorController : MonoBehaviour {
   [SerializeField] Material LockedMaterial;
   [SerializeField] Material UnlockedMaterial;
-  [SerializeField] UIManager UIManager;
   [SerializeField] bool IsLocked = false;
   [SerializeField] bool IsOpened = false;
   [SerializeField] UnityEvent OnClose;
 
+  private UIManager UIManager;
   private bool IsActive = false;
   private Transform _Door;
   private MeshRenderer _MeshRenderer;
   private bool _ShouldTriggerCloseEvent = false;
+
+  private void Awake() {
+    UIManager = GameObject.FindObjectOfType<UIManager>();
+  }
 
   private void Update() {
     if (IsActive && !IsLocked && Input.GetButtonDown("Open")) {
