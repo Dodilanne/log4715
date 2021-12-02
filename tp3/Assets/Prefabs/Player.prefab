@@ -1124,7 +1124,7 @@ GameObject:
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1226,6 +1226,7 @@ MonoBehaviour:
   canDash: 1
   dashInputAction: Dash
   JumpForce: 7
+  WallJumpVerticalFactor: 10
   WhatIsGround:
     serializedVersion: 2
     m_Bits: 256
@@ -1275,7 +1276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   initialHealth: -1
-  healthBarOffset: {x: 0, y: 0, z: 0}
+  healthBarOffset: {x: 0, y: 1.25, z: 0}
 --- !u!1 &1141491862458821845
 GameObject:
   m_ObjectHideFlags: 0

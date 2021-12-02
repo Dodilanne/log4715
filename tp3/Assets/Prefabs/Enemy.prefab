@@ -1025,7 +1025,6 @@ GameObject:
   - component: {fileID: 1139868623410432320}
   - component: {fileID: 1139868623410432326}
   - component: {fileID: 1139868623410432327}
-  - component: {fileID: -4610009537501745664}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -1110,23 +1109,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.2
   m_Center: {x: 0, y: 0.17, z: 0}
---- !u!114 &-4610009537501745664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1141484560268116079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05faabdc8ab9ef24b927d49a761d67c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RocketManager: {fileID: 0}
-  WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 256
-  ShootSpeed: 2
 --- !u!1 &1141491862458821845
 GameObject:
   m_ObjectHideFlags: 0
