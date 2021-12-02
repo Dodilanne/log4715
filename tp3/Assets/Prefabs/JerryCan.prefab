@@ -21,6 +21,11 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1001474376430264, guid: 44326d52e1e01364dbac7dc22fea5173, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 1001474376430264, guid: 44326d52e1e01364dbac7dc22fea5173, type: 3}
       propertyPath: m_Name
       value: JerryCan
       objectReference: {fileID: 0}
