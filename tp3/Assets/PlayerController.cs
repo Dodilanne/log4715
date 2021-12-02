@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour {
   private static readonly Vector3 FlipRotation = new Vector3(0, 180, 0);
   private static readonly Vector3 CameraPosition = new Vector3(10, 1, 0);
   private static readonly Vector3 InverseCameraPosition = new Vector3(-10, 1, 0);
+  private AudioSource source;
+  public AudioClip footstepsClip;
+  public AudioClip jumpClip;
 
   // Déclaration des variables
   bool _Grounded { get; set; }
@@ -50,6 +53,7 @@ public class PlayerController : MonoBehaviour {
     _Anim = GetComponent<Animator>();
     _Rb = GetComponent<Rigidbody>();
     _MainCamera = Camera.main;
+    source = gameObject.AddComponent<AudioSource >();
   }
 
   // Utile pour régler des valeurs aux objets
@@ -81,7 +85,19 @@ public class PlayerController : MonoBehaviour {
         _Grounded = false;
         _Anim.SetBool("Grounded", false);
         _Anim.SetBool("Jump", true);
+        if (jumpClip!=null) {
+          source.PlayOneShot(jumpClip, 0.5f);
+        }
+        else Debug.Log("missing jump clip");
       }
+      // else if(_Rb.velocity.magnitude > 1)
+      // {
+      //   if (footstepsClip!=null) {
+      //     delay();
+      //     source.PlayOneShot(footstepsClip, 0.5f);
+      //   }
+      //   else Debug.Log("missing footsteps clip");
+      // }
     }
     if (Input.GetButtonDown(dashInputAction) && CanDash()) {
       dashing = true;
@@ -152,5 +168,10 @@ public class PlayerController : MonoBehaviour {
         if(other.gameObject.layer==3) {
           _TouchingWall = false;
         }
+    }
+
+    IEnumerator delay()
+    {
+      yield return new WaitForSeconds(2);
     }
 }

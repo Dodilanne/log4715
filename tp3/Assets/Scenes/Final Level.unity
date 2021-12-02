@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -289,6 +289,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  arenaDoorClip: {fileID: 8300000, guid: aac534555836a4254bf1bef41bfd660e, type: 3}
 --- !u!1 &79034929
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,6 +576,7 @@ MonoBehaviour:
   OnClose:
     m_PersistentCalls:
       m_Calls: []
+  arenaDoorClip: {fileID: 8300000, guid: 206eace5e459b4e75a496f959592082e, type: 3}
 --- !u!1 &136417020
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,6 +2317,7 @@ MonoBehaviour:
   Entrance: {fileID: 130603728}
   Exit: {fileID: 47950127}
   UIManager: {fileID: 424815951}
+  bgClip: {fileID: 8300000, guid: bb7831111666383498d876e6136f3c5e, type: 3}
 --- !u!1 &542512181
 GameObject:
   m_ObjectHideFlags: 0
@@ -2953,12 +2956,12 @@ PrefabInstance:
     - target: {fileID: 1135187632239870229, guid: 655a6367e440ae4458928409278b196f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -41.1
+      value: -38.56
       objectReference: {fileID: 0}
     - target: {fileID: 1135187632239870229, guid: 655a6367e440ae4458928409278b196f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 99.8
+      value: 245.46
       objectReference: {fileID: 0}
     - target: {fileID: 1135187632239870229, guid: 655a6367e440ae4458928409278b196f,
         type: 3}
@@ -3002,9 +3005,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1139868623410432324, guid: 655a6367e440ae4458928409278b196f,
         type: 3}
+      propertyPath: jumpClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a04e8112fb4cca944baabc0048ff839d, type: 3}
+    - target: {fileID: 1139868623410432324, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
       propertyPath: DashDuration
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 1139868623410432324, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: footstepsClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5e8e6e435e65fe146b588b8a9d2df461, type: 3}
     - target: {fileID: 1139868623410432324, guid: 655a6367e440ae4458928409278b196f,
         type: 3}
       propertyPath: WallJumpVerticalFactor
@@ -3020,6 +3033,11 @@ PrefabInstance:
       propertyPath: RocketManager
       value: 
       objectReference: {fileID: 679712221}
+    - target: {fileID: 2456711422750037113, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: gameOverClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2bbbb355d26df4f41b772af63e76758a, type: 3}
     - target: {fileID: 2456711422750037113, guid: 655a6367e440ae4458928409278b196f,
         type: 3}
       propertyPath: GameOverEvent.m_PersistentCalls.m_Calls.Array.size

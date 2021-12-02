@@ -13,6 +13,8 @@ public class DoorController : MonoBehaviour {
   private Transform _Door;
   private MeshRenderer _MeshRenderer;
   private bool _ShouldTriggerCloseEvent = false;
+  private AudioSource source;
+  public AudioClip arenaDoorClip;
 
   private void Update() {
     if (IsActive && !IsLocked && Input.GetButtonDown("Open")) {
@@ -35,6 +37,7 @@ public class DoorController : MonoBehaviour {
     _MeshRenderer = _Door.gameObject.GetComponent<MeshRenderer>();
     if (IsLocked) Lock();
     else Unlock();
+    source = gameObject.AddComponent<AudioSource >();
   }
 
   public void Lock() {
@@ -48,10 +51,20 @@ public class DoorController : MonoBehaviour {
   }
 
   public void Open() {
+    if (arenaDoorClip!=null) {
+      source.PlayOneShot(arenaDoorClip, 0.5f);
+    }
+    else Debug.Log("missing arena door open clip");
+
     IsOpened = true;
   }
 
   public void Close() {
+    if (arenaDoorClip!=null) {
+      source.PlayOneShot(arenaDoorClip, 0.5f);
+    }
+    else Debug.Log("missing arena door close clip");
+
     IsOpened = false;
     _ShouldTriggerCloseEvent = true;
   }

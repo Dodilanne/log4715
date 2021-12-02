@@ -8,8 +8,18 @@ public class GameController : MonoBehaviour {
   [System.NonSerialized] public int EnemiesCount = 0;
   [System.NonSerialized] public bool HasEntered = false;
 
+  private AudioSource source;
+  public AudioClip bgClip;
+
   private void Start() {
     EnemiesCount = GameObject.Find("Enemies").transform.childCount;
+    source = gameObject.AddComponent<AudioSource >();
+    if (bgClip!=null) {
+      source.clip = bgClip;
+      source.Play();
+    }
+    else Debug.Log("missing arena door open clip");
+
   }
 
   public static void Pause() {
