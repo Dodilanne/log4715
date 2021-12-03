@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 33577869894469320}
   - component: {fileID: 23292452957193782}
   - component: {fileID: 5556462214197869638}
-  - component: {fileID: -738556332890589606}
   - component: {fileID: 3745739502208931271}
+  - component: {fileID: 3872661542867938896}
   m_Layer: 0
   m_Name: Rocket_Enemy
   m_TagString: EnemyRocket
@@ -101,18 +101,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-738556332890589606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1913703475352026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa8ccd2cbba5d44cb3aea883e097c61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &3745739502208931271
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -127,3 +115,20 @@ CapsuleCollider:
   m_Height: 4.5643954
   m_Direction: 1
   m_Center: {x: -0.00000022351742, y: 0.2667722, z: -1.4080419e-15}
+--- !u!114 &3872661542867938896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913703475352026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cebdac47f08a8a54885cde364f190464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  speed: 5
+  canBreakWalls: 0
+  dealsDamageTo:
+  - Player

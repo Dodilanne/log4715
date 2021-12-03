@@ -12,10 +12,13 @@ public class ScoreControler : MonoBehaviour {
   public static float elapsedTime = 0.0f;
   private float startTime;
   public static bool gameOver = false;
+  private AudioSource source;
+  public AudioClip scoreClip;
 
   void Awake() 
   {
     scoreText= FindObjectOfType<Text>();
+    source = gameObject.AddComponent<AudioSource >();
   }
 
   void Start() 
@@ -53,6 +56,8 @@ public class ScoreControler : MonoBehaviour {
     {
       GameObject.Destroy(other.gameObject);
       score+= 10; 
+      if (scoreClip!=null) source.PlayOneShot(scoreClip, 0.5f);
+      else Debug.Log("missing clip");
     }
   }
 

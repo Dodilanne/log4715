@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Gyms/Gym Score/ScoreResultScene.unity
     guid: 7e6537ed108d84c49831603ba8c39f9f
+  - enabled: 1
+    path: Assets/Scenes/MenuStart.unity
+    guid: 4234727bb2bede04b957ac0f9c94f579
+  - enabled: 1
+    path: Assets/Scenes/Final Level.unity
+    guid: f6a86f15574d8b844923e07b85cf46c1
   m_configObjects: {}

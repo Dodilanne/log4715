@@ -4,15 +4,25 @@ using UnityEngine.Events;
 public class DoorController : MonoBehaviour {
   [SerializeField] Material LockedMaterial;
   [SerializeField] Material UnlockedMaterial;
-  [SerializeField] UIManager UIManager;
   [SerializeField] bool IsLocked = false;
   [SerializeField] bool IsOpened = false;
-  [SerializeField] UnityEvent OnClose;
 
+  [SerializeField] public UnityEvent OnClose;
+
+  private UIManager UIManager;
   private bool IsActive = false;
   private Transform _Door;
   private MeshRenderer _MeshRenderer;
   private bool _ShouldTriggerCloseEvent = false;
+
+  private AudioSource source;
+  public AudioClip arenaOpenDoorClip;
+  public AudioClip arenaCloseDoorClip;
+  public AudioClip pickupKeyClip;
+
+  private void Awake() {
+    UIManager = GameObject.FindObjectOfType<UIManager>();
+  }
 
   private void Update() {
     if (IsActive && !IsLocked && Input.GetButtonDown("Open")) {
@@ -35,6 +45,7 @@ public class DoorController : MonoBehaviour {
     _MeshRenderer = _Door.gameObject.GetComponent<MeshRenderer>();
     if (IsLocked) Lock();
     else Unlock();
+    source = gameObject.AddComponent<AudioSource >();
   }
 
   public void Lock() {
@@ -43,15 +54,30 @@ public class DoorController : MonoBehaviour {
   }
 
   public void Unlock() {
+    if (pickupKeyClip!=null) {
+      source.PlayOneShot(pickupKeyClip, 5.0f);
+    }
+    else Debug.Log("missing pickup key clip");
+    
     IsLocked = false;
     _MeshRenderer.material = UnlockedMaterial;
   }
 
   public void Open() {
+    if (arenaOpenDoorClip!=null) {
+      source.PlayOneShot(arenaOpenDoorClip, 1.5f);
+    }
+    else Debug.Log("missing arena door open clip");
+
     IsOpened = true;
   }
 
   public void Close() {
+    if (arenaCloseDoorClip!=null) {
+      source.PlayOneShot(arenaCloseDoorClip, 1.5f);
+    }
+    else Debug.Log("missing arena door close clip");
+
     IsOpened = false;
     _ShouldTriggerCloseEvent = true;
   }
