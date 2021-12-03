@@ -9,6 +9,7 @@ public class MenuPause : MonoBehaviour
     public static bool OnMenu = false;
     public GameObject MenuPauseUI;
     public GameObject MenuOptionUI;
+    public GameObject MenuUpgradeUI;
     public GameObject BackgroundImg;
 
     // Start is called before the first frame update
@@ -26,6 +27,8 @@ public class MenuPause : MonoBehaviour
                 Resume();
                 BackgroundImg.SetActive(false);
                 MenuOptionUI.SetActive(false);
+                MenuUpgradeUI.SetActive(false);
+
             }
             else
             {
