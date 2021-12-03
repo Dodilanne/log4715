@@ -95,15 +95,7 @@ public class PlayerController : MonoBehaviour {
       //   }
       //   else Debug.Log("missing footsteps clip");
       // }
-    }
-    if (Input.GetButtonDown(dashInputAction) && CanDash()) {
-      dashing = true;
-      dashDirection = Input.GetAxis("Horizontal") < 0 ? -1 : 1;
-      Physics.IgnoreLayerCollision(7, 8);
-      Invoke("StopDash", DashDuration);
-    }
-
-    if (_TouchingWall) {
+    } else if (_TouchingWall) {
       if (Input.GetButtonDown("Jump")) {
 
         var horizontal = Input.GetAxis("Horizontal") * MoveSpeed;
@@ -115,6 +107,13 @@ public class PlayerController : MonoBehaviour {
 
         FlipCharacter(direction);
       }
+    }
+
+    if (Input.GetButtonDown(dashInputAction) && CanDash()) {
+      dashing = true;
+      dashDirection = Input.GetAxis("Horizontal") < 0 ? -1 : 1;
+      Physics.IgnoreLayerCollision(7, 8);
+      Invoke("StopDash", DashDuration);
     }
   }
 
