@@ -29,8 +29,8 @@ public class Rocket : MonoBehaviour {
         } else {
           Debug.Log("Destructible has no Destructible component");
         }
-        _removeFromScene();
       }
+      _removeFromScene();
     };
     if (dealsDamageTo.Contains(other.tag)) {
       HealthManager healthManager = other.gameObject.GetComponentInChildren<HealthManager>();
