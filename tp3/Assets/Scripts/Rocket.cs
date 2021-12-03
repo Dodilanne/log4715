@@ -38,7 +38,7 @@ public class Rocket : MonoBehaviour {
       _removeFromScene();
     }
 
-    if (other.tag == "Wall" || other.tag == "Door" || other.gameObject.layer == 6) {
+    if (other.tag == "Door" || other.gameObject.layer == 6) {
       _removeFromScene();
     }
   }

@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour {
     _Anim = GetComponent<Animator>();
     _Rb = GetComponent<Rigidbody>();
     _MainCamera = Camera.main;
-    source = gameObject.AddComponent<AudioSource >();
+    source = gameObject.AddComponent<AudioSource>();
   }
 
   // Utile pour régler des valeurs aux objets
@@ -83,10 +83,9 @@ public class PlayerController : MonoBehaviour {
         _Grounded = false;
         _Anim.SetBool("Grounded", false);
         _Anim.SetBool("Jump", true);
-        if (jumpClip!=null) {
+        if (jumpClip != null) {
           source.PlayOneShot(jumpClip, 0.5f);
-        }
-        else Debug.Log("missing jump clip");
+        } else Debug.Log("missing jump clip");
       }
       // else if(_Rb.velocity.magnitude > 1)
       // {
@@ -145,11 +144,6 @@ public class PlayerController : MonoBehaviour {
 
   // Collision avec le sol
   void OnCollisionEnter(Collision coll) {
-    // On s'assure de bien être en contact avec le mur
-    if (coll.gameObject.tag == "Wall") {
-      _TouchingWall = true;
-    }
-
     // On s'assure de bien être en contact avec le sol
     if ((WhatIsGround & (1 << coll.gameObject.layer)) == 0)
       return;
@@ -161,8 +155,14 @@ public class PlayerController : MonoBehaviour {
     }
   }
 
-  void OnCollisionExit(Collision other) {
-    if (other.gameObject.tag == "Wall") {
+  private void OnTriggerEnter(Collider other) {
+    if (other.tag == "Wall") {
+      _TouchingWall = true;
+    }
+  }
+
+  void OnTriggerExit(Collider other) {
+    if (other.tag == "Wall") {
       _TouchingWall = false;
     }
   }
