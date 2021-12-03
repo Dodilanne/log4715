@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 40
-  speed: 3
+  speed: 5
   canBreakWalls: 1
   dealsDamageTo:
   - Enemy
