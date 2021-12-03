@@ -1,16 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class Shooter : MonoBehaviour {
-  [SerializeField] RocketsManager rocketsManager;
 
   [SerializeField] private GameObject _equippedRocket;
   private bool _isReloading = false;
 
   private Animator _anim;
+  private RocketsManager _rocketsManager;
   private float _shotDuration = -1f;
+
+  private AudioSource source;
+  public AudioClip playerShot;
+  public AudioClip enemyShot;
 
   public void EquipRocket(GameObject rocketPrefab) {
     _equippedRocket = rocketPrefab;
@@ -31,18 +36,38 @@ public class Shooter : MonoBehaviour {
     }
   }
 
-  public IEnumerator Shoot() {
+  public IEnumerator Shoot(Action action = null) {
     if (_shotDuration < 0) yield return false;
 
     _isReloading = true;
     _anim.SetTrigger("Pickup");
-    rocketsManager.Spawn(this.gameObject, _equippedRocket);
+    _rocketsManager.Spawn(this.gameObject, _equippedRocket);
+
+    if (_isEnemy()) {
+      if (enemyShot!=null) {
+        source.PlayOneShot(enemyShot, 1.0f);
+      }
+      else Debug.Log("missing enemy shot clip");
+    }
+    else {
+      if (playerShot!=null) {
+        source.PlayOneShot(playerShot, 1.0f);
+      }
+      else Debug.Log("missing player shot clip");
+    }
+
+
     yield return new WaitForSeconds(_shotDuration);
     _isReloading = false;
+    if (action != null) {
+      action();
+    }
   }
 
   void Awake() {
     _anim = GetComponent<Animator>();
+    _rocketsManager = GameObject.FindObjectOfType<RocketsManager>();
+    source = gameObject.AddComponent<AudioSource >();
   }
 
   void Start() {

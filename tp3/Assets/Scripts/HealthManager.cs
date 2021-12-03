@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour {
@@ -11,10 +12,12 @@ public class HealthManager : MonoBehaviour {
   private int _currentHealth;
   private Slider _healthBar;
   private GameController _game;
+  private UIManager _uiManager;
 
   private void Awake() {
     _healthBar = this.gameObject.GetComponentInChildren<Slider>();
     _game = GameObject.FindObjectOfType<GameController>();
+    _uiManager = GameObject.FindObjectOfType<UIManager>();
 
     _healthBar.maxValue = maxHealth;
     _setCurrentHealth(initialHealth >= 0 ? initialHealth : maxHealth);
@@ -28,25 +31,33 @@ public class HealthManager : MonoBehaviour {
     return this.tag == "Enemy";
   }
 
-  private void _die() {
-    Quaternion rotation = this.transform.rotation;
-    this.transform.Rotate(Vector3.forward, 90);
-    this.transform.Rotate(Vector3.left, 45);
-
-    if (_isEnemy()) {
-      _game.RemoveEnemy();
-    }
-  }
 
   private void _setCurrentHealth(int health) {
     _currentHealth = health;
     _healthBar.value = health;
   }
 
+  public void Die() {
+    Quaternion rotation = this.transform.rotation;
+    this.transform.Rotate(Vector3.forward, 90);
+    this.transform.Rotate(Vector3.left, 45);
+
+    _setCurrentHealth(0);
+
+    if (_isEnemy()) {
+      _game.RemoveEnemy();
+      this.gameObject.layer = 9; // Dead enemies
+      GetComponent<EnemyController>().Die();
+      this.transform.Find("Health Bar").gameObject.SetActive(false);
+    } else {
+      _uiManager.GameOver();
+    }
+  }
+
   public void Hit(int amount) {
     _setCurrentHealth(Math.Max(0, _currentHealth - amount));
     if (_currentHealth == 0) {
-      _die();
+      Die();
     }
   }
 

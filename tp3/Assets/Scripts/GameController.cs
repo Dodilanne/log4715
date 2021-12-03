@@ -16,10 +16,12 @@ public class GameController : MonoBehaviour {
     source = gameObject.AddComponent<AudioSource >();
     if (bgClip!=null) {
       source.clip = bgClip;
+      source.volume = 0.3f;
       source.Play();
     }
     else Debug.Log("missing arena door open clip");
 
+    // EnemiesCount = GameObject.Find("Enemies").transform.childCount;
   }
 
   public static void Pause() {
@@ -31,10 +33,10 @@ public class GameController : MonoBehaviour {
   }
 
   public void RemoveEnemy() {
-    EnemiesCount--;
-    if (EnemiesCount == 0) {
-      EndFight();
-    }
+    // EnemiesCount--;
+    // if (EnemiesCount == 0) {
+    //   EndFight();
+    // }
   }
 
   public void EnterArena() {

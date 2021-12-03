@@ -24,11 +24,13 @@ public class Rocket : MonoBehaviour {
     if (other.tag == "Wall") _removeFromScene();
     if (other.tag == "Destructible") {
       _removeFromScene();
-      Destructible destructible = other.gameObject.GetComponentInChildren<Destructible>();
-      if (destructible != null) {
-        destructible.Destruct();
-      } else {
-        Debug.Log("Destructible has no Destructible component");
+      if (canBreakWalls) {
+        Destructible destructible = other.gameObject.GetComponentInChildren<Destructible>();
+        if (destructible != null) {
+          destructible.Destruct();
+        } else {
+          Debug.Log("Destructible has no Destructible component");
+        }
       }
     };
     if (dealsDamageTo.Contains(other.tag)) {
