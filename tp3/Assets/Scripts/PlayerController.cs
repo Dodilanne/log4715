@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour {
 
     if (_TouchingWall) {
       if (Input.GetButtonDown("Jump")) {
-        
+
         var horizontal = Input.GetAxis("Horizontal") * MoveSpeed;
         var direction = (horizontal < 0) ? 1 : -1;
         _Rb.velocity = new Vector3(0, 0, 0);
@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour {
   // Collision avec le sol
   void OnCollisionEnter(Collision coll) {
     // On s'assure de bien être en contact avec le mur
-    if (((coll.gameObject.layer == 3))) {
+    if (coll.gameObject.tag == "Wall") {
       _TouchingWall = true;
     }
 
@@ -161,15 +161,9 @@ public class PlayerController : MonoBehaviour {
     }
   }
 
-   void OnCollisionExit(Collision other)
-    {
-        if(other.gameObject.layer==3) {
-          _TouchingWall = false;
-        }
+  void OnCollisionExit(Collision other) {
+    if (other.gameObject.tag == "Wall") {
+      _TouchingWall = false;
     }
-
-    IEnumerator delay()
-    {
-      yield return new WaitForSeconds(2);
-    }
+  }
 }

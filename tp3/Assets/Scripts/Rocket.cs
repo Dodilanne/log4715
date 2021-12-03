@@ -21,9 +21,7 @@ public class Rocket : MonoBehaviour {
   }
 
   private void OnTriggerEnter(Collider other) {
-    if (other.tag == "Wall") _removeFromScene();
     if (other.tag == "Destructible") {
-      _removeFromScene();
       if (canBreakWalls) {
         Destructible destructible = other.gameObject.GetComponentInChildren<Destructible>();
         if (destructible != null) {
@@ -31,11 +29,16 @@ public class Rocket : MonoBehaviour {
         } else {
           Debug.Log("Destructible has no Destructible component");
         }
+        _removeFromScene();
       }
     };
     if (dealsDamageTo.Contains(other.tag)) {
       HealthManager healthManager = other.gameObject.GetComponentInChildren<HealthManager>();
       if (healthManager != null) healthManager.Hit(damage);
+      _removeFromScene();
+    }
+
+    if (other.tag == "Wall" || other.tag == "Door" || other.gameObject.layer == 6) {
       _removeFromScene();
     }
   }
