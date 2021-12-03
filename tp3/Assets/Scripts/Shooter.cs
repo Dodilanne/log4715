@@ -45,6 +45,9 @@ public class Shooter : MonoBehaviour {
 
     if (_isEnemy()) {
       if (enemyShot!=null) {
+        source.spatialBlend = 1;
+        source.rolloffMode = AudioRolloffMode.Custom;
+        source.maxDistance = 30;
         source.PlayOneShot(enemyShot, 1.0f);
       }
       else Debug.Log("missing enemy shot clip");

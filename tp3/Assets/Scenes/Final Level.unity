@@ -5807,11 +5807,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 994827356417235804, guid: 655a6367e440ae4458928409278b196f,
         type: 3}
-      propertyPath: enemyHitClip
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 994827356417235804, guid: 655a6367e440ae4458928409278b196f,
-        type: 3}
       propertyPath: gameOverClip
       value: 
       objectReference: {fileID: 8300000, guid: 2bbbb355d26df4f41b772af63e76758a, type: 3}
@@ -5820,11 +5815,6 @@ PrefabInstance:
       propertyPath: playerHitClip
       value: 
       objectReference: {fileID: 8300000, guid: df12c6cc6d84b4f2088739cc6bc46fac, type: 3}
-    - target: {fileID: 994827356417235804, guid: 655a6367e440ae4458928409278b196f,
-        type: 3}
-      propertyPath: enemyDeathClip
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 994827356417235804, guid: 655a6367e440ae4458928409278b196f,
         type: 3}
       propertyPath: GameOverEvent.m_PersistentCalls.m_Calls.Array.size
@@ -5889,12 +5879,12 @@ PrefabInstance:
     - target: {fileID: 1135187632239870229, guid: 655a6367e440ae4458928409278b196f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -19.83
+      value: 27.6
       objectReference: {fileID: 0}
     - target: {fileID: 1135187632239870229, guid: 655a6367e440ae4458928409278b196f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 170.41
+      value: 95
       objectReference: {fileID: 0}
     - target: {fileID: 1135187632239870229, guid: 655a6367e440ae4458928409278b196f,
         type: 3}
@@ -6205,7 +6195,7 @@ PrefabInstance:
         type: 3}
       propertyPath: enemyShot
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 19b6db7ce7a924b6493eac4bf8acf69d, type: 3}
     - target: {fileID: 7280324126044899417, guid: 655a6367e440ae4458928409278b196f,
         type: 3}
       propertyPath: playerShot
