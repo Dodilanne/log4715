@@ -1230,7 +1230,7 @@ MonoBehaviour:
   WallJumpVerticalFactor: 10
   WhatIsGround:
     serializedVersion: 2
-    m_Bits: 448
+    m_Bits: 456
   WhatIsWall:
     serializedVersion: 2
     m_Bits: 0
