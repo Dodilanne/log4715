@@ -1950,6 +1950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rocketPrefab: {fileID: 1913703475352026, guid: 6103b69310d117e4f9d44d93a4377e03,
     type: 3}
+  pickUpClip: {fileID: 8300000, guid: 96091d2c592104718968d3c1649f60b9, type: 3}
 --- !u!135 &271432560
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3355,6 +3356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 548aa8e2562de48478527462b7047a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClickClip: {fileID: 0}
 --- !u!114 &424815952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6885,6 +6887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rocketPrefab: {fileID: 1913703475352026, guid: 95aa0ab7dae262a42a4f14d19278b88b,
     type: 3}
+  pickUpClip: {fileID: 8300000, guid: 96091d2c592104718968d3c1649f60b9, type: 3}
 --- !u!135 &947174771
 SphereCollider:
   m_ObjectHideFlags: 0
