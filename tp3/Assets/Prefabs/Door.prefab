@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 5229907304221957757}
   - component: {fileID: 5229907304221957758}
   - component: {fileID: 5229907304221957759}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Entrance
   m_TagString: Door
   m_Icon: {fileID: 0}
