@@ -56,7 +56,6 @@ public class HealthManager : MonoBehaviour {
     _setCurrentHealth(0);
 
     if (_isEnemy()) {
-      _game.RemoveEnemy();
       this.gameObject.layer = 9; // Dead enemies
       GetComponent<EnemyController>().Die();
       this.transform.Find("Health Bar").gameObject.SetActive(false);
