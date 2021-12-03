@@ -2,7 +2,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using System.Collections;
+using System.Threading;
 public class UIManager : MonoBehaviour {
   private Button[] _Buttons;
   private GameObject _GameOverPanel;
@@ -10,6 +11,8 @@ public class UIManager : MonoBehaviour {
   private GameObject _TipPanel;
   private GameObject _CongratsPanel;
 
+  private AudioSource source;
+  public AudioClip buttonClickClip;
 
   private void Awake() {
     _Buttons = this.gameObject.GetComponentsInChildren<Button>();
@@ -17,6 +20,7 @@ public class UIManager : MonoBehaviour {
     _VictoryPanel = GameObject.Find("Victory");
     _TipPanel = GameObject.Find("Tip");
     _CongratsPanel = GameObject.Find("Congrats");
+    source = gameObject.AddComponent<AudioSource >();
     if (_Buttons.Count() > 0) {
       foreach (Button button in _Buttons) {
         button.onClick.AddListener(_ReloadScene);
@@ -50,7 +54,12 @@ public class UIManager : MonoBehaviour {
   }
 
   private void _ReloadScene() {
-    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    GameController.Resume();
+    if (buttonClickClip!=null) {
+      source.PlayOneShot(buttonClickClip, 1.0f);
+    }
+    else Debug.Log("missing button click clip");
+      Thread.Sleep(300) ;
+      SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+      GameController.Resume();
   }
 }
