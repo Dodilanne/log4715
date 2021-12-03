@@ -22,6 +22,7 @@ public class DoorController : MonoBehaviour {
 
   private void Awake() {
     UIManager = GameObject.FindObjectOfType<UIManager>();
+    source = gameObject.AddComponent<AudioSource >();
   }
 
   private void Update() {
@@ -45,7 +46,6 @@ public class DoorController : MonoBehaviour {
     _MeshRenderer = _Door.gameObject.GetComponent<MeshRenderer>();
     if (IsLocked) Lock();
     else Unlock();
-    source = gameObject.AddComponent<AudioSource >();
   }
 
   public void Lock() {
