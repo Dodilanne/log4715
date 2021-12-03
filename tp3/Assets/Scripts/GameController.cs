@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour {
     if (bgClip != null) {
       source.clip = bgClip;
       source.volume = 0.3f;
+      source.loop = true;
       source.Play();
     } else Debug.Log("missing arena door open clip");
   }

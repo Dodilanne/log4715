@@ -31,6 +31,7 @@ public class RocketJumpController : MonoBehaviour {
 
   private AudioSource source;
   public AudioClip pickUpClip;
+  public AudioClip rocketJumpClip;
 
   // Start is called before the first frame update
   void Start() {
@@ -44,10 +45,14 @@ public class RocketJumpController : MonoBehaviour {
     if (Input.GetButtonDown(rocketInputAction) && CanFly()) {
       fireParticles.Play();
       flying = true;
+      source.clip = rocketJumpClip;
+      source.volume = 0.3f;
+      source.Play();
     }
     if (Input.GetButtonUp(rocketInputAction)) {
       fireParticles.Stop();
       flying = false;
+      source.Stop();
     }
 
     if (flying) {

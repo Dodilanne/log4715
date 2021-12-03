@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6692,6 +6692,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1139868623410432324, guid: 655a6367e440ae4458928409278b196f,
         type: 3}
+      propertyPath: dashClip
+      value: 
+      objectReference: {fileID: 8300000, guid: aa28cba17b8a4451fbf1e18e17d9ca30, type: 3}
+    - target: {fileID: 1139868623410432324, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
       propertyPath: jumpClip
       value: 
       objectReference: {fileID: 8300000, guid: a04e8112fb4cca944baabc0048ff839d, type: 3}
@@ -6940,6 +6945,11 @@ PrefabInstance:
       propertyPath: rocketFuelUi
       value: 
       objectReference: {fileID: 654378655}
+    - target: {fileID: 4506849491041810995, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: rocketJumpClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a825c52d8241e475491ea552189b9a87, type: 3}
     - target: {fileID: 7280324126044899417, guid: 655a6367e440ae4458928409278b196f,
         type: 3}
       propertyPath: enemyShot

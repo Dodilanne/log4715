@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
   private AudioSource source;
   public AudioClip footstepsClip;
   public AudioClip jumpClip;
+  public AudioClip dashClip;
 
   // Déclaration des variables
   bool _Grounded { get; set; }
@@ -125,6 +126,9 @@ public class PlayerController : MonoBehaviour {
     }
 
     if (Input.GetButtonDown(dashInputAction) && CanDash()) {
+      if (dashClip != null) {
+        source.PlayOneShot(dashClip, 1f);
+      } else Debug.Log("missing dash clip");
       dashing = true;
       dashDirection = Input.GetAxis("Horizontal") < 0 ? -1 : 1;
       Physics.IgnoreLayerCollision(7, 8);
