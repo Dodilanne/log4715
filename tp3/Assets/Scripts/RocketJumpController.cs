@@ -18,10 +18,7 @@ public class RocketJumpController : MonoBehaviour {
   [SerializeField]
   float jerrycanFuelContents = 5f;
 
-  [SerializeField]
-  Text rocketFuelUi;
-  [SerializeField]
-  string rocketFuelUiPrefix = "Rocket Fuel: ";
+  private Slider _fuelBar;
 
   Rigidbody rb;
 
@@ -33,10 +30,15 @@ public class RocketJumpController : MonoBehaviour {
   public AudioClip pickUpClip;
   public AudioClip rocketJumpClip;
 
+  private void Awake() {
+    _fuelBar = GameObject.Find("Fuel Level").GetComponentInChildren<Slider>();
+    _fuelBar.maxValue = rocketFuelCapacity;
+  }
+
   // Start is called before the first frame update
   void Start() {
     rb = GetComponent<Rigidbody>();
-    currentFuel = rocketFuelCapacity;
+    _setCurrentFuel(rocketFuelCapacity);
     source = gameObject.AddComponent<AudioSource>();
   }
 
@@ -57,14 +59,17 @@ public class RocketJumpController : MonoBehaviour {
 
     if (flying) {
       rb.AddForce(new Vector3(0, RocketForce * Time.deltaTime, 0), ForceMode.Impulse);
-      currentFuel = Mathf.Clamp(currentFuel - Time.deltaTime, 0, rocketFuelCapacity);
+      _setCurrentFuel(Mathf.Clamp(currentFuel - Time.deltaTime, 0, rocketFuelCapacity));
       if (!CanFly()) {
         fireParticles.Stop();
         flying = false;
       }
     }
-    rocketFuelUi.text = rocketFuelUiPrefix + currentFuel.ToString("#.00");
+  }
 
+  private void _setCurrentFuel(float value) {
+    currentFuel = value;
+    _fuelBar.value = currentFuel;
   }
 
   private bool CanFly() {
@@ -81,7 +86,7 @@ public class RocketJumpController : MonoBehaviour {
   private void OnTriggerEnter(Collider other) {
     if (other.tag == "JerryCan") {
       StartCoroutine(HideJerryCan(other.gameObject));
-      currentFuel = Mathf.Clamp(currentFuel + jerrycanFuelContents, 0, rocketFuelCapacity);
+      _setCurrentFuel(Mathf.Clamp(currentFuel + jerrycanFuelContents, 0, rocketFuelCapacity));
       if (pickUpClip != null) {
         source.PlayOneShot(pickUpClip, 1f);
       } else Debug.Log("missing pickup clip");
