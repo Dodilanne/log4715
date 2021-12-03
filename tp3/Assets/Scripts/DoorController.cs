@@ -17,6 +17,7 @@ public class DoorController : MonoBehaviour {
   private AudioSource source;
   public AudioClip arenaOpenDoorClip;
   public AudioClip arenaCloseDoorClip;
+  public AudioClip pickupKeyClip;
 
   private void Awake() {
     UIManager = GameObject.FindObjectOfType<UIManager>();
@@ -52,6 +53,11 @@ public class DoorController : MonoBehaviour {
   }
 
   public void Unlock() {
+    if (pickupKeyClip!=null) {
+      source.PlayOneShot(pickupKeyClip, 5.0f);
+    }
+    else Debug.Log("missing pickup key clip");
+    
     IsLocked = false;
     _MeshRenderer.material = UnlockedMaterial;
   }

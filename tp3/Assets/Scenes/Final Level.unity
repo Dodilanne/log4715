@@ -224,6 +224,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5229907303980334239, guid: f8498c5c7bf424fb9bf52c7c5fdad5ef,
         type: 3}
+      propertyPath: pickupKeyClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3f447b478c37848538e0365526381a74, type: 3}
+    - target: {fileID: 5229907303980334239, guid: f8498c5c7bf424fb9bf52c7c5fdad5ef,
+        type: 3}
       propertyPath: arenaOpenDoorClip
       value: 
       objectReference: {fileID: 8300000, guid: 206eace5e459b4e75a496f959592082e, type: 3}
@@ -386,6 +391,7 @@ MonoBehaviour:
         m_CallState: 2
   arenaOpenDoorClip: {fileID: 8300000, guid: 206eace5e459b4e75a496f959592082e, type: 3}
   arenaCloseDoorClip: {fileID: 8300000, guid: aac534555836a4254bf1bef41bfd660e, type: 3}
+  pickupKeyClip: {fileID: 0}
 --- !u!1 &79034929
 GameObject:
   m_ObjectHideFlags: 0
