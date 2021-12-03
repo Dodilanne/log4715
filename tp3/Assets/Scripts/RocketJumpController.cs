@@ -29,11 +29,14 @@ public class RocketJumpController : MonoBehaviour {
 
   float currentFuel;
 
+  private AudioSource source;
+  public AudioClip pickUpClip;
+
   // Start is called before the first frame update
   void Start() {
     rb = GetComponent<Rigidbody>();
     currentFuel = rocketFuelCapacity;
-
+    source = gameObject.AddComponent<AudioSource>();
   }
 
   // Update is called once per frame
@@ -74,6 +77,9 @@ public class RocketJumpController : MonoBehaviour {
     if (other.tag == "JerryCan") {
       StartCoroutine(HideJerryCan(other.gameObject));
       currentFuel = Mathf.Clamp(currentFuel + jerrycanFuelContents, 0, rocketFuelCapacity);
+      if (pickUpClip != null) {
+        source.PlayOneShot(pickUpClip, 1f);
+      } else Debug.Log("missing pickup clip");
     }
   }
 }

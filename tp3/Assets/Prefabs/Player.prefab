@@ -1220,6 +1220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3105ba9e0e5f92c418138c60dc647197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  footstepsClip: {fileID: 8300000, guid: 5e8e6e435e65fe146b588b8a9d2df461, type: 3}
+  jumpClip: {fileID: 8300000, guid: a04e8112fb4cca944baabc0048ff839d, type: 3}
   MoveSpeed: 4
   DashSpeed: 80
   DashDuration: 0.12
@@ -1246,6 +1248,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _equippedRocket: {fileID: 0}
+  playerShot: {fileID: 8300000, guid: 687950f8997e44d38848b27edf9af400, type: 3}
+  enemyShot: {fileID: 8300000, guid: 19b6db7ce7a924b6493eac4bf8acf69d, type: 3}
 --- !u!114 &994827356417235804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1262,6 +1266,10 @@ MonoBehaviour:
   maxHealth: 100
   initialHealth: -1
   healthBarOffset: {x: 0, y: 1.25, z: 0}
+  gameOverClip: {fileID: 8300000, guid: 2bbbb355d26df4f41b772af63e76758a, type: 3}
+  enemyDeathClip: {fileID: 8300000, guid: 56a917b3ac9794ac09f44e12869a48b9, type: 3}
+  enemyHitClip: {fileID: 8300000, guid: 0b7e05e87ff6747aa8014433c32df598, type: 3}
+  playerHitClip: {fileID: 8300000, guid: 0b7e05e87ff6747aa8014433c32df598, type: 3}
 --- !u!199 &6767479363149546561
 ParticleSystemRenderer:
   serializedVersion: 6

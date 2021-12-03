@@ -17,6 +17,11 @@ public class HealthManager : MonoBehaviour {
   private GameController _game;
   private UIManager _uiManager;
 
+  private AudioSource source;
+  public AudioClip gameOverClip;
+  public AudioClip enemyDeathClip;
+  public AudioClip enemyHitClip;
+  public AudioClip playerHitClip;
 
   private void Awake() {
     if (isPlayer) {
@@ -30,6 +35,8 @@ public class HealthManager : MonoBehaviour {
 
     _healthBar.maxValue = maxHealth;
     _setCurrentHealth(initialHealth >= 0 ? initialHealth : maxHealth);
+
+    source = gameObject.AddComponent<AudioSource>();
   }
 
   private void Update() {
@@ -56,10 +63,17 @@ public class HealthManager : MonoBehaviour {
     _setCurrentHealth(0);
 
     if (_isEnemy()) {
+      if (enemyDeathClip != null) {
+        source.PlayOneShot(enemyDeathClip, 1f);
+      } else Debug.Log("missing enemy death clip");
+
       this.gameObject.layer = 9; // Dead enemies
       GetComponent<EnemyController>().Die();
       this.transform.Find("Health Bar").gameObject.SetActive(false);
     } else {
+      if (gameOverClip != null) {
+        source.PlayOneShot(gameOverClip, 1.5f);
+      } else Debug.Log("missing game over clip");
       _uiManager.GameOver();
     }
 
@@ -74,6 +88,16 @@ public class HealthManager : MonoBehaviour {
     _setCurrentHealth(Math.Max(0, _currentHealth - amount));
     if (_currentHealth == 0) {
       Die();
+    } else {
+      if (_isEnemy()) {
+        if (enemyHitClip != null) {
+          source.PlayOneShot(enemyDeathClip, 1f);
+        } else Debug.Log("missing enemy hit clip");
+      } else {
+        if (playerHitClip != null) {
+          source.PlayOneShot(playerHitClip, 1.5f);
+        } else Debug.Log("missing player hit clip");
+      }
     }
   }
 

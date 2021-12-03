@@ -13,6 +13,10 @@ public class Shooter : MonoBehaviour {
   private RocketsManager _rocketsManager;
   private float _shotDuration = -1f;
 
+  private AudioSource source;
+  public AudioClip playerShot;
+  public AudioClip enemyShot;
+
   public void EquipRocket(GameObject rocketPrefab) {
     _equippedRocket = rocketPrefab;
   }
@@ -38,6 +42,21 @@ public class Shooter : MonoBehaviour {
     _isReloading = true;
     _anim.SetTrigger("Pickup");
     _rocketsManager.Spawn(this.gameObject, _equippedRocket);
+
+    if (_isEnemy()) {
+      if (enemyShot!=null) {
+        source.PlayOneShot(enemyShot, 1.0f);
+      }
+      else Debug.Log("missing enemy shot clip");
+    }
+    else {
+      if (playerShot!=null) {
+        source.PlayOneShot(playerShot, 1.0f);
+      }
+      else Debug.Log("missing player shot clip");
+    }
+
+
     yield return new WaitForSeconds(_shotDuration);
     _isReloading = false;
     if (action != null) {
@@ -48,6 +67,7 @@ public class Shooter : MonoBehaviour {
   void Awake() {
     _anim = GetComponent<Animator>();
     _rocketsManager = GameObject.FindObjectOfType<RocketsManager>();
+    source = gameObject.AddComponent<AudioSource >();
   }
 
   void Start() {

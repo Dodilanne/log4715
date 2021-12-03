@@ -52,6 +52,9 @@ MonoBehaviour:
   OnClose:
     m_PersistentCalls:
       m_Calls: []
+  arenaOpenDoorClip: {fileID: 8300000, guid: 206eace5e459b4e75a496f959592082e, type: 3}
+  arenaCloseDoorClip: {fileID: 8300000, guid: aac534555836a4254bf1bef41bfd660e, type: 3}
+  pickupKeyClip: {fileID: 8300000, guid: 3f447b478c37848538e0365526381a74, type: 3}
 --- !u!65 &5229907303980334208
 BoxCollider:
   m_ObjectHideFlags: 0

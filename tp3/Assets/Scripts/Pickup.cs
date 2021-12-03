@@ -8,9 +8,13 @@ public class Pickup : MonoBehaviour {
   private Shooter _player;
   private HudManager _hudManager;
 
+  private AudioSource source;
+  public AudioClip pickUpClip;
+
   private void Awake() {
     _initialRotation = this.transform.rotation;
     _hudManager = GameObject.FindObjectOfType<HudManager>();
+    source = gameObject.AddComponent<AudioSource>();
   }
 
   private void Update() {
@@ -21,6 +25,10 @@ public class Pickup : MonoBehaviour {
     }
 
     if (_isActive && _player != null && Input.GetButtonDown("Open")) {
+      if (pickUpClip != null) {
+        source.PlayOneShot(pickUpClip, 1f);
+      } else Debug.Log("missing pickup clip");
+
       _player.EquipRocket(rocketPrefab);
       Rocket rocket = rocketPrefab.GetComponent<Rocket>();
       _hudManager.ShowEquipment(this.gameObject.name, rocket.Damage, rocket.Speed);

@@ -1125,9 +1125,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7850669f817654aaeae74486e7fbcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayer: 0
   maxHealth: 100
   initialHealth: -1
   healthBarOffset: {x: 0, y: 0, z: 0}
+  gameOverClip: {fileID: 8300000, guid: 2bbbb355d26df4f41b772af63e76758a, type: 3}
+  enemyDeathClip: {fileID: 8300000, guid: 56a917b3ac9794ac09f44e12869a48b9, type: 3}
+  enemyHitClip: {fileID: 8300000, guid: 0b7e05e87ff6747aa8014433c32df598, type: 3}
+  playerHitClip: {fileID: 8300000, guid: 0b7e05e87ff6747aa8014433c32df598, type: 3}
 --- !u!114 &5477513891895967931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1142,6 +1147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _equippedRocket: {fileID: 1913703475352026, guid: e020e2e23aec2c14087df80147f709e8,
     type: 3}
+  playerShot: {fileID: 8300000, guid: 687950f8997e44d38848b27edf9af400, type: 3}
+  enemyShot: {fileID: 8300000, guid: 19b6db7ce7a924b6493eac4bf8acf69d, type: 3}
 --- !u!114 &-8151503034581933396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1158,6 +1165,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 456
   ShootSpeed: 2
+  deathClip: {fileID: 8300000, guid: 56a917b3ac9794ac09f44e12869a48b9, type: 3}
 --- !u!1 &1141491862458821845
 GameObject:
   m_ObjectHideFlags: 0
