@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour {
+  [SerializeField] private bool isPlayer = false;
   [SerializeField] private int maxHealth = 100;
   [SerializeField] private int initialHealth = -1;
   [SerializeField] private Vector3 healthBarOffset = Vector3.zero;
@@ -15,7 +16,12 @@ public class HealthManager : MonoBehaviour {
   private UIManager _uiManager;
 
   private void Awake() {
-    _healthBar = this.gameObject.GetComponentInChildren<Slider>();
+    if (isPlayer) {
+      _healthBar = GameObject.Find("Player Health").GetComponentInChildren<Slider>();
+    } else {
+      _healthBar = this.gameObject.GetComponentInChildren<Slider>();
+    }
+
     _game = GameObject.FindObjectOfType<GameController>();
     _uiManager = GameObject.FindObjectOfType<UIManager>();
 
@@ -24,7 +30,9 @@ public class HealthManager : MonoBehaviour {
   }
 
   private void Update() {
-    _healthBar.transform.position = Camera.main.WorldToScreenPoint(this.transform.position + healthBarOffset);
+    if (!isPlayer) {
+      _healthBar.transform.position = Camera.main.WorldToScreenPoint(this.transform.position + healthBarOffset);
+    }
   }
 
   private bool _isEnemy() {
