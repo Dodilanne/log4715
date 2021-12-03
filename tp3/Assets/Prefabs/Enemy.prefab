@@ -1128,7 +1128,7 @@ MonoBehaviour:
   isPlayer: 0
   maxHealth: 100
   initialHealth: -1
-  healthBarOffset: {x: 0, y: 0, z: 0}
+  healthBarOffset: {x: 0, y: 1.25, z: 0}
   gameOverClip: {fileID: 8300000, guid: 2bbbb355d26df4f41b772af63e76758a, type: 3}
   enemyDeathClip: {fileID: 8300000, guid: 56a917b3ac9794ac09f44e12869a48b9, type: 3}
   enemyHitClip: {fileID: 8300000, guid: 0b7e05e87ff6747aa8014433c32df598, type: 3}
