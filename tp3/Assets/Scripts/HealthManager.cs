@@ -18,7 +18,6 @@ public class HealthManager : MonoBehaviour {
   private UIManager _uiManager;
 
   private AudioSource source;
-  public AudioClip gameOverClip;
   public AudioClip enemyDeathClip;
   public AudioClip enemyHitClip;
   public AudioClip playerHitClip;
@@ -71,9 +70,6 @@ public class HealthManager : MonoBehaviour {
       GetComponent<EnemyController>().Die();
       this.transform.Find("Health Bar").gameObject.SetActive(false);
     } else {
-      if (gameOverClip != null) {
-        source.PlayOneShot(gameOverClip, 1.5f);
-      } else Debug.Log("missing game over clip");
       _uiManager.GameOver();
     }
 

@@ -3015,6 +3015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonClickClip: {fileID: 8300000, guid: 6dac2f61fbb69401898c0c95c790a386, type: 3}
+  gameOverClip: {fileID: 8300000, guid: 2bbbb355d26df4f41b772af63e76758a, type: 3}
 --- !u!114 &424815952
 MonoBehaviour:
   m_ObjectHideFlags: 0

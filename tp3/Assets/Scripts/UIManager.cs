@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour {
 
   private AudioSource source;
   public AudioClip buttonClickClip;
+  public AudioClip gameOverClip;
 
   private void Awake() {
     _Buttons = this.gameObject.GetComponentsInChildren<Button>();
@@ -36,6 +37,10 @@ public class UIManager : MonoBehaviour {
   }
 
   public void GameOver() {
+    if (gameOverClip!=null) {
+      source.PlayOneShot(gameOverClip, 1.5f);
+    }
+    else Debug.Log("missing game over clip");
     GameController.Pause();
     _GameOverPanel.SetActive(true);
   }
