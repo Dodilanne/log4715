@@ -5,6 +5,8 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour {
+  public Action OnDie;
+
   [SerializeField] private bool isPlayer = false;
   [SerializeField] private int maxHealth = 100;
   [SerializeField] private int initialHealth = -1;
@@ -14,6 +16,7 @@ public class HealthManager : MonoBehaviour {
   private Slider _healthBar;
   private GameController _game;
   private UIManager _uiManager;
+
 
   private void Awake() {
     if (isPlayer) {
@@ -60,9 +63,15 @@ public class HealthManager : MonoBehaviour {
     } else {
       _uiManager.GameOver();
     }
+
+    if (OnDie != null) {
+      OnDie();
+    }
   }
 
   public void Hit(int amount) {
+    if (this.gameObject.layer == 9) return; // Ignore dead enemies
+
     _setCurrentHealth(Math.Max(0, _currentHealth - amount));
     if (_currentHealth == 0) {
       Die();

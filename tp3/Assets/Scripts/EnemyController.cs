@@ -39,8 +39,14 @@ public class EnemyController : MonoBehaviour {
     }
   }
 
+  public void Live() {
+    _isDead = false;
+    this.gameObject.layer = 7; // Active enemy
+  }
+
   public void Die() {
     _isDead = true;
+    this.gameObject.layer = 9; // Dead enemy
   }
 
   // Collision avec le sol

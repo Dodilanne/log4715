@@ -6,7 +6,8 @@ public class DoorController : MonoBehaviour {
   [SerializeField] Material UnlockedMaterial;
   [SerializeField] bool IsLocked = false;
   [SerializeField] bool IsOpened = false;
-  [SerializeField] UnityEvent OnClose;
+
+  [SerializeField] public UnityEvent OnClose;
 
   private UIManager UIManager;
   private bool IsActive = false;
