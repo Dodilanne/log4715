@@ -24,9 +24,7 @@ public class PlayerController : MonoBehaviour {
   float MoveSpeed = 5.0f;
 
   [SerializeField]
-  float DashSpeed = 10.0f;
-  [SerializeField]
-  float DashDuration = 1.0f;
+  float DashDistance = 3.0f;
   [SerializeField]
   bool canDash = true;
   bool dashing = false;
@@ -40,6 +38,8 @@ public class PlayerController : MonoBehaviour {
   [SerializeField]
   float WallJumpVerticalFactor = 10f;
 
+  private ParticleSystem _dustParticles;
+
   [SerializeField]
   LayerMask WhatIsGround;
 
@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour {
     _Rb = GetComponent<Rigidbody>();
     _MainCamera = Camera.main;
     source = gameObject.AddComponent<AudioSource>();
+    _dustParticles = this.transform.Find("Dash Dust").gameObject.GetComponent<ParticleSystem>();
   }
 
   // Utile pour régler des valeurs aux objets
@@ -63,8 +64,22 @@ public class PlayerController : MonoBehaviour {
 
   // Vérifie les entrées de commandes du joueur
   void Update() {
-    var horizontal = dashing ? dashDirection * DashSpeed : Input.GetAxis("Horizontal") * MoveSpeed;
-    HorizontalMove(horizontal);
+    var horizontal = Input.GetAxis("Horizontal") * MoveSpeed;
+    if (dashing) {
+      dashing = false;
+      horizontal = dashDirection * DashDistance;
+
+      _dustParticles.Play();
+
+      RaycastHit hit;
+      Ray ray = new Ray(this.transform.position, new Vector3(0, 0, dashDirection));
+      bool hasHit = Physics.Raycast(ray, out hit, DashDistance);
+
+      this.transform.position = hasHit ? hit.point : this.transform.position + new Vector3(0, 0, dashDirection * DashDistance);
+    } else {
+      HorizontalMove(horizontal);
+    }
+
     FlipCharacter(horizontal);
     CheckInput();
   }
@@ -113,13 +128,7 @@ public class PlayerController : MonoBehaviour {
       dashing = true;
       dashDirection = Input.GetAxis("Horizontal") < 0 ? -1 : 1;
       Physics.IgnoreLayerCollision(7, 8);
-      Invoke("StopDash", DashDuration);
     }
-  }
-
-  void StopDash() {
-    dashing = false;
-    Physics.IgnoreLayerCollision(7, 8, false);
   }
 
   bool CanDash() {

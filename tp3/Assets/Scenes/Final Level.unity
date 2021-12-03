@@ -6955,12 +6955,6 @@ PrefabInstance:
       propertyPath: rocketsManager
       value: 
       objectReference: {fileID: 679712221}
-    - target: {fileID: 7280324126044899417, guid: 655a6367e440ae4458928409278b196f,
-        type: 3}
-      propertyPath: _equippedRocket
-      value: 
-      objectReference: {fileID: 1913703475352026, guid: 6103b69310d117e4f9d44d93a4377e03,
-        type: 3}
     - target: {fileID: 7484915912457719444, guid: 655a6367e440ae4458928409278b196f,
         type: 3}
       propertyPath: m_Layer
@@ -7161,12 +7155,12 @@ PrefabInstance:
     - target: {fileID: 8124398429071888597, guid: 0a407f5c62e724a2bac2fae5a2dd7e40,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 30
+      value: 33.264
       objectReference: {fileID: 0}
     - target: {fileID: 8124398429071888597, guid: 0a407f5c62e724a2bac2fae5a2dd7e40,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8124398429071888597, guid: 0a407f5c62e724a2bac2fae5a2dd7e40,
         type: 3}
@@ -7176,7 +7170,7 @@ PrefabInstance:
     - target: {fileID: 8124398429071888597, guid: 0a407f5c62e724a2bac2fae5a2dd7e40,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -146.6
+      value: -144.9681
       objectReference: {fileID: 0}
     - target: {fileID: 8124398429071888597, guid: 0a407f5c62e724a2bac2fae5a2dd7e40,
         type: 3}
