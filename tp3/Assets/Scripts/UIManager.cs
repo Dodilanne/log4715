@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour {
   private AudioSource source;
   public AudioClip buttonClickClip;
   public AudioClip gameOverClip;
+  public AudioClip gameWonClip;
 
   private void Awake() {
     _Buttons = this.gameObject.GetComponentsInChildren<Button>();
@@ -46,6 +47,10 @@ public class UIManager : MonoBehaviour {
   }
 
   public void Victory() {
+    if (gameWonClip!=null) {
+      source.PlayOneShot(gameWonClip, 1.5f);
+    }
+    else Debug.Log("missing winning clip");
     GameController.Pause();
     _VictoryPanel.SetActive(true);
   }
