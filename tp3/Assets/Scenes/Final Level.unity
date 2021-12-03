@@ -2068,6 +2068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 548aa8e2562de48478527462b7047a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClickClip: {fileID: 8300000, guid: 6dac2f61fbb69401898c0c95c790a386, type: 3}
 --- !u!114 &424815952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3619,6 +3620,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 79034930}
     m_Modifications:
+    - target: {fileID: 994827356417235804, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: gameOverClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2bbbb355d26df4f41b772af63e76758a, type: 3}
     - target: {fileID: 994827356417235804, guid: 655a6367e440ae4458928409278b196f,
         type: 3}
       propertyPath: GameOverEvent.m_PersistentCalls.m_Calls.Array.size
@@ -7498,6 +7504,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1609026567}
     m_Modifications:
+    - target: {fileID: -8151503034581933396, guid: 9ed6f51ffea1de146883b3fa081d6a7a,
+        type: 3}
+      propertyPath: deathClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 56a917b3ac9794ac09f44e12869a48b9, type: 3}
     - target: {fileID: 1135187632239870229, guid: 9ed6f51ffea1de146883b3fa081d6a7a,
         type: 3}
       propertyPath: m_RootOrder

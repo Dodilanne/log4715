@@ -15,6 +15,9 @@ public class EnemyController : MonoBehaviour {
   private bool _IsAttacking = false;
   private bool _isDead = false;
 
+  private AudioSource source;
+  public AudioClip deathClip;
+
   private IEnumerator _enableShooting() {
     yield return new WaitForSeconds(ShootSpeed);
     _IsAttacking = false;
@@ -24,6 +27,7 @@ public class EnemyController : MonoBehaviour {
     _shooter = GetComponent<Shooter>();
     _Anim = GetComponent<Animator>();
     _Game = GameObject.FindObjectOfType<GameController>();
+    source = gameObject.AddComponent<AudioSource >();
   }
 
   void Start() {
@@ -40,6 +44,10 @@ public class EnemyController : MonoBehaviour {
   }
 
   public void Die() {
+    if (deathClip!=null) {
+      source.PlayOneShot(deathClip, 1.0f);
+    }
+    else Debug.Log("missing enemy death clip");
     _isDead = true;
   }
 

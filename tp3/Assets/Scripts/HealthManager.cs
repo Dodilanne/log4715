@@ -14,6 +14,9 @@ public class HealthManager : MonoBehaviour {
   private GameController _game;
   private UIManager _uiManager;
 
+  private AudioSource source;
+  public AudioClip gameOverClip;
+
   private void Awake() {
     _healthBar = this.gameObject.GetComponentInChildren<Slider>();
     _game = GameObject.FindObjectOfType<GameController>();
@@ -21,6 +24,8 @@ public class HealthManager : MonoBehaviour {
 
     _healthBar.maxValue = maxHealth;
     _setCurrentHealth(initialHealth >= 0 ? initialHealth : maxHealth);
+
+    source = gameObject.AddComponent<AudioSource >();
   }
 
   private void Update() {
@@ -50,8 +55,12 @@ public class HealthManager : MonoBehaviour {
       GetComponent<EnemyController>().Die();
       this.transform.Find("Health Bar").gameObject.SetActive(false);
     } else {
+      if (gameOverClip!=null) {
+        source.PlayOneShot(gameOverClip, 1.5f);
+      }
+      else Debug.Log("missing game over clip");
       _uiManager.GameOver();
-    }
+      }
   }
 
   public void Hit(int amount) {
