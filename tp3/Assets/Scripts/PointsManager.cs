@@ -13,6 +13,9 @@ public class PointsManager : MonoBehaviour {
   private Slider _slider;
   private Text _progress;
   private Text _target;
+  private GameObject _upgradeMenuObj;
+  private ScoreUpdate _scoreUpdate;
+  private UpgradeMenu _upgradeMenu;
 
   private AudioSource source;
   public AudioClip oilCanPickup;
@@ -22,6 +25,12 @@ public class PointsManager : MonoBehaviour {
     _slider = bar.transform.GetComponentInChildren<Slider>();
     _progress = bar.transform.Find("Progress").GetComponent<Text>();
     _target = bar.transform.Find("Target").GetComponent<Text>();
+
+    _upgradeMenuObj = GameObject.Find("MenuUpgrade");
+    _upgradeMenu = _upgradeMenuObj.GetComponent<UpgradeMenu>();
+    _scoreUpdate = GameObject.FindObjectOfType<ScoreUpdate>();
+    _upgradeMenuObj.SetActive(false);
+
     source = gameObject.AddComponent<AudioSource>();
 
     _xp = 0;
@@ -42,6 +51,9 @@ public class PointsManager : MonoBehaviour {
 
   private void _levelUp() {
     _currTarget *= 2;
+    _upgradeMenu.UpgradePoints++;
+    _scoreUpdate.scoreNum = _upgradeMenu.UpgradePoints;
+    _upgradeMenuObj.SetActive(true);
   }
 
   private void _updateUI() {

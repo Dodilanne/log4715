@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class MenuSecondaire : MonoBehaviour
-{
-    public AudioMixer audioMixer;
+public class MenuSecondaire : MonoBehaviour {
+  public AudioMixer audioMixer;
 
-    public void SetVolume(float volume)
-    {
-        audioMixer.SetFloat("GameVolume", volume);
-    }
-
+  public void SetVolume(float volume) {
+    audioMixer.SetFloat("GameVolume", volume);
+  }
 }
