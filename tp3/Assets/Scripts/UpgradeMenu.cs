@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UpgradeMenu : MonoBehaviour {
+  [SerializeField] private float speedInc = 2f;
+  [SerializeField] private float jumpInc = 1f;
+  [SerializeField] private float dashInc = 1f;
 
   public static bool upgradeMenu = false;
   public GameObject UpgradeMenuUI;
@@ -11,26 +14,18 @@ public class UpgradeMenu : MonoBehaviour {
 
   ScoreUpdate score;
 
-  UpgradeVie BarreVie;
   UpgradeArmure BarreArmure;
   UpgradeSaut BarreSaut;
   UpgradeVitesse BarreVitesse;
 
-  //PlayerController Stats;
-  //UpgradeVie BarreVie = new UpgradeVie();
-  //GameObject ImgUpgradeVie = GameObject.FindGameObjectWithTag("Img");
-  //UpgradeVie BarreVie = ImgUpgrade.GetComponent<UpgradeVie>();
-  //BarreUpgradeVie = UpgradeVie ;
+  private PlayerController _player;
 
-  //Stats = GetComponent<PlayerController>();
-
+  private void Awake() {
+    _player = GameObject.FindObjectOfType<PlayerController>();
+  }
 
   void Start() {
     score = GetComponentInChildren<ScoreUpdate>();
-
-    BarreVie = GetComponentInChildren<UpgradeVie>();
-    BarreVie.valeur = 0;
-    BarreVie.max = 10;
 
     BarreArmure = GetComponentInChildren<UpgradeArmure>();
     BarreArmure.valeur = 0;
@@ -70,24 +65,11 @@ public class UpgradeMenu : MonoBehaviour {
     upgradeMenu = true;
   }
 
-  public void addPointsVie() {
-    if (UpgradePoints > 0) {
-      UpgradePoints--;
-      BarreVie.valeur += 1;
-    }
-  }
-
-  public void takePointsVie() {
-    if (BarreVie.valeur > 0) {
-      UpgradePoints++;
-      BarreVie.valeur -= 1;
-    }
-  }
-
   public void addPointsArmure() {
     if (UpgradePoints > 0) {
       UpgradePoints--;
       BarreArmure.valeur += 1;
+      _player.DashDistance += dashInc;
     }
   }
 
@@ -95,6 +77,7 @@ public class UpgradeMenu : MonoBehaviour {
     if (BarreArmure.valeur > 0) {
       UpgradePoints++;
       BarreArmure.valeur -= 1;
+      _player.DashDistance -= dashInc;
     }
   }
 
@@ -103,16 +86,16 @@ public class UpgradeMenu : MonoBehaviour {
     if (UpgradePoints > 0) {
       UpgradePoints--;
       BarreSaut.valeur += 1;
+      _player.JumpForce += jumpInc;
     }
-    //Stats.JumpForce = (float)7 + (float)BarreSaut.valeur;
   }
 
   public void takePointsSaut() {
     if (BarreSaut.valeur > 0) {
       UpgradePoints++;
       BarreSaut.valeur -= 1;
+      _player.JumpForce -= jumpInc;
     }
-    //Stats.JumpForce = (float)7 + (float)BarreSaut.valeur;
   }
 
 
@@ -120,6 +103,7 @@ public class UpgradeMenu : MonoBehaviour {
     if (UpgradePoints > 0) {
       UpgradePoints--;
       BarreVitesse.valeur += 1;
+      _player.MoveSpeed += speedInc;
     }
   }
 
@@ -127,6 +111,7 @@ public class UpgradeMenu : MonoBehaviour {
     if (BarreVitesse.valeur > 0) {
       UpgradePoints++;
       BarreVitesse.valeur -= 1;
+      _player.MoveSpeed -= speedInc;
     }
   }
 

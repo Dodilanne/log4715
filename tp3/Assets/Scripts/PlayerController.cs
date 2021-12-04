@@ -20,11 +20,12 @@ public class PlayerController : MonoBehaviour {
   Rigidbody _Rb { get; set; }
   Camera _MainCamera { get; set; }
 
-  // Valeurs exposées
-  [SerializeField]
-  float MoveSpeed = 5.0f;
+  // Valeurs modifiables
+  public float MoveSpeed = 5.0f;
+  public float JumpForce = 10f;
+  public float DashDistance = 3.0f;
 
-  [SerializeField] float DashDistance = 3.0f;
+  // Valeurs exposées
   [SerializeField] float DashDelay = 1.0f;
   [SerializeField] bool canDash = true;
   bool dashing = false;
@@ -34,8 +35,6 @@ public class PlayerController : MonoBehaviour {
   [SerializeField]
   string dashInputAction = "Dash";
 
-  [SerializeField]
-  float JumpForce = 10f;
   [SerializeField]
   float WallJumpVerticalFactor = 10f;
 
