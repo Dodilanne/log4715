@@ -24,12 +24,12 @@ public class PlayerController : MonoBehaviour {
   [SerializeField]
   float MoveSpeed = 5.0f;
 
-  [SerializeField]
-  float DashDistance = 3.0f;
-  [SerializeField]
-  bool canDash = true;
+  [SerializeField] float DashDistance = 3.0f;
+  [SerializeField] float DashDelay = 1.0f;
+  [SerializeField] bool canDash = true;
   bool dashing = false;
   int dashDirection = 0;
+  private DashReloadBar _dashBar;
 
   [SerializeField]
   string dashInputAction = "Dash";
@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour {
 
   // Awake se produit avait le Start. Il peut être bien de régler les références dans cette section.
   void Awake() {
+    _dashBar = GameObject.FindObjectOfType<DashReloadBar>();
     _Anim = GetComponent<Animator>();
     _Rb = GetComponent<Rigidbody>();
     _MainCamera = Camera.main;
@@ -130,9 +131,16 @@ public class PlayerController : MonoBehaviour {
         source.PlayOneShot(dashClip, 1f);
       } else Debug.Log("missing dash clip");
       dashing = true;
+      canDash = false;
+      _dashBar.Dash(DashDelay);
+      Invoke("ResetDash", DashDelay);
       dashDirection = Input.GetAxis("Horizontal") < 0 ? -1 : 1;
       Physics.IgnoreLayerCollision(7, 8);
     }
+  }
+
+  private void ResetDash() {
+    canDash = true;
   }
 
   bool CanDash() {
