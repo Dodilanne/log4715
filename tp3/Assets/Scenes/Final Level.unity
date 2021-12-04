@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6598,6 +6598,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 79034930}
     m_Modifications:
+    - target: {fileID: -3100885843891818702, guid: 655a6367e440ae4458928409278b196f,
+        type: 3}
+      propertyPath: oilCanPickup
+      value: 
+      objectReference: {fileID: 8300000, guid: 09a7a8d8531c14103aabdbc08be70d78, type: 3}
     - target: {fileID: 994827356417235804, guid: 655a6367e440ae4458928409278b196f,
         type: 3}
       propertyPath: gameOverClip

@@ -14,11 +14,15 @@ public class PointsManager : MonoBehaviour {
   private Text _progress;
   private Text _target;
 
+  private AudioSource source;
+  public AudioClip oilCanPickup;
+
   private void Awake() {
     GameObject bar = GameObject.Find("XP Bar");
     _slider = bar.transform.GetComponentInChildren<Slider>();
     _progress = bar.transform.Find("Progress").GetComponent<Text>();
     _target = bar.transform.Find("Target").GetComponent<Text>();
+    source = gameObject.AddComponent<AudioSource>();
 
     _xp = 0;
     _currTarget = baseTarget;
@@ -27,6 +31,10 @@ public class PointsManager : MonoBehaviour {
 
   private void OnCollisionEnter(Collision other) {
     if (other.gameObject.tag == "OilCan") {
+      if (oilCanPickup != null) {
+        source.PlayOneShot(oilCanPickup, 1f);
+      } else Debug.Log("missing oilcan pickup clip");
+
       Destroy(other.gameObject);
       _updateXP(_xp + xpPerCan);
     }
