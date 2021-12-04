@@ -6612,7 +6612,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerHitClip
       value: 
-      objectReference: {fileID: 8300000, guid: df12c6cc6d84b4f2088739cc6bc46fac, type: 3}
+      objectReference: {fileID: 8300000, guid: d794f6ff075f84ec8987df2de9f207a9, type: 3}
     - target: {fileID: 994827356417235804, guid: 655a6367e440ae4458928409278b196f,
         type: 3}
       propertyPath: GameOverEvent.m_PersistentCalls.m_Calls.Array.size
