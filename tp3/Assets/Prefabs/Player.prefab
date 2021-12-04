@@ -1116,13 +1116,13 @@ GameObject:
   - component: {fileID: 1045414848769901505}
   - component: {fileID: 1139868623410432320}
   - component: {fileID: 1139868623410432326}
-  - component: {fileID: 1139868623410432327}
   - component: {fileID: 1139868623410432324}
   - component: {fileID: 7280324126044899417}
   - component: {fileID: 994827356417235804}
   - component: {fileID: 6767479363149546561}
   - component: {fileID: 7482278014400903514}
   - component: {fileID: 4506849491041810995}
+  - component: {fileID: -3100885843891818702}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1194,21 +1194,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.8, z: 0.4}
-  m_Center: {x: 0, y: 0.7, z: 0}
---- !u!135 &1139868623410432327
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1141484560268116079}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.2
-  m_Center: {x: 0, y: 0.17, z: 0}
+  m_Size: {x: 0.4, y: 1, z: 0.4}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &1139868623410432324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1223,8 +1210,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footstepsClip: {fileID: 8300000, guid: 5e8e6e435e65fe146b588b8a9d2df461, type: 3}
   jumpClip: {fileID: 8300000, guid: a04e8112fb4cca944baabc0048ff839d, type: 3}
+  dashClip: {fileID: 0}
   MoveSpeed: 4
   DashDistance: 5
+  DashDelay: 1
   canDash: 1
   dashInputAction: Dash
   JumpForce: 7
@@ -1266,7 +1255,6 @@ MonoBehaviour:
   maxHealth: 100
   initialHealth: -1
   healthBarOffset: {x: 0, y: 1.25, z: 0}
-  gameOverClip: {fileID: 8300000, guid: 2bbbb355d26df4f41b772af63e76758a, type: 3}
   enemyDeathClip: {fileID: 8300000, guid: 56a917b3ac9794ac09f44e12869a48b9, type: 3}
   enemyHitClip: {fileID: 8300000, guid: 0b7e05e87ff6747aa8014433c32df598, type: 3}
   playerHitClip: {fileID: 8300000, guid: 0b7e05e87ff6747aa8014433c32df598, type: 3}
@@ -6061,9 +6049,22 @@ MonoBehaviour:
   RocketForce: 15
   rocketFuelCapacity: 1
   jerrycanFuelContents: 1
-  rocketFuelUi: {fileID: 0}
-  rocketFuelUiPrefix: 'Rocket Fuel: '
   pickUpClip: {fileID: 0}
+  rocketJumpClip: {fileID: 0}
+--- !u!114 &-3100885843891818702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141484560268116079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b7b3629f07194fbc88a1f4c30e1cd21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseTarget: 50
+  xpPerCan: 10
 --- !u!1 &1141491862458821845
 GameObject:
   m_ObjectHideFlags: 0
